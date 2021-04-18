@@ -2,4 +2,11 @@ site_name: EE579 Group 4 Docs
 
 nav:
     - Home: index.md
+    - Getting Started:
+      - Registering a Device: register-device.md
+      - Connecting to the broker: mqtt.md
 theme: readthedocs
+
+markdown_extensions:
+    - toc:
+        permalink: "#"

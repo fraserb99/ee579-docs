@@ -1,17 +1,17 @@
-# Welcome to MkDocs
+# EE579 Group 4 Documentation
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This site provides documentation to allow integration with our API and MQTT Broker.
 
-## Commands
+Read the [Getting Started](getting-started.md) docs if you would like information on how to integrate your IoT device with our system.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## System Overview
+### Admin Interface
+Our admin interface is available here: [https://www.ee579-group4.net](https://www.ee579-group4.net). This site enables users to login and configure rules, devices, and device groups.
 
-## Project layout
+Our system is multi-tenant, with users able to create multiple tenants and invite other users. Rules and devices are then scoped to these tenants, meaning users only have permission to access and edit resources belonging one of their tenants.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### API
+Our API is written in C# using ASP.NET Core. Full OpenAPI documentation is available here: [https://ee579-dev-api.azurewebsites.net](https://ee579-dev-api.azurewebsites.net/swagger)
+
+### MQTT Broker
+We are using [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support) as our MQTT Broker. Information on connecting and recieving/publishing messages can be found [here](mqtt.md)
