@@ -75,6 +75,10 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../mqtt/">Connecting to the broker</a>
@@ -118,7 +122,7 @@
               
                 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h1>
 <h2 id="registering-a-device">Registering a device<a class="headerlink" href="#registering-a-device" title="Permanent link">#</a></h2>
-<p>In order for your device to connect to IoT Hub, it must first retreive credentials. This can be done by sending a <code>POST</code> request to <code>/devices/register</code>. This will register your device with our system and return credentials to allow connection over MQTT.</p>
+<p>In order for your device to connect to IoT Hub, it must first retreive credentials. This can be done by sending a <code>POST</code> request to <code>/devices/register</code>. This will register your device with our system and return credentials to allow connection over MQTT. The device should make this request when first powered on, but the same endpoint can be used even if a device is already registered in the system. This accounts for situations where the device may have lost it's credentials, and allows the device to make the request every time it powers on, if desired.</p>
 <h4 id="request-format">Request Format<a class="headerlink" href="#request-format" title="Permanent link">#</a></h4>
 <h6 id="example-body">Example Body<a class="headerlink" href="#example-body" title="Permanent link">#</a></h6>
 <pre><code>{
@@ -132,12 +136,24 @@
 <h4 id="response-format">Response Format<a class="headerlink" href="#response-format" title="Permanent link">#</a></h4>
 <h6 id="example-body_1">Example Body<a class="headerlink" href="#example-body_1" title="Permanent link">#</a></h6>
 <pre><code>{
-    &quot;deviceId&quot;: &quot;&lt;string&gt;&quot;
+    &quot;host&quot;: &quot;IFTTT-Iot-Hub.azure-devices.net&quot;,
+    &quot;port&quot;: 8883,
+    &quot;topic&quot;: &quot;devices/{deviceId}/messages/devicebound/#&quot;,
+    &quot;password&quot;: &quot;SharedAccessSignature sr=IFTTT-Iot-Hub.azure-devices.net%2Fdevices%2F{deviceId}&amp;sig=KOYS9LgCJ9eH7TTlMIGvedxIVI3cXmha7uU6yB4Bs6M%3D&amp;se=88018657115&quot;
 }
 </code></pre>
 <h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h6>
 <ul>
-<li><strong>host</strong>: This should be a unique identifier. A MAC adress is recommended, but it can take any form - guid, uuid, etc.</li>
+<li><strong>host</strong>: The MQTT broker url</li>
+<li><strong>port</strong>: The port the MQTT broker is listening on</li>
+<li><strong>topic</strong>: The topic that the device should subscribe to, to receive cloud-to-device messages</li>
+<li><strong>password</strong>: The password that should be used when connecting to the broker, in the form of a <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#use-a-shared-access-policy">SAS token</a></li>
+</ul>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">#</a></h2>
+<p>It may be neccessary to make this request on a computer, rather than IoT device when debugging. The <a href="https://ee579-dev-api.azurewebsites.net">API Swagger Docs</a> can be used to make this request and provides a prefilled request body. Any other method of making HTTP requests can also be used - cURL, <a href="https://postman.com">Postman</a>, etc.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="../mqtt/">Connecting to the broker</a></li>
 </ul>
               
             </div>
