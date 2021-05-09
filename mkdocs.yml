@@ -2,9 +2,15 @@ site_name: EE579 Group 4 Docs
 
 nav:
     - Home: index.md
-    - Getting Started:
+    - For Developers:
       - Registering a Device: register-device.md
       - Connecting to the broker: mqtt.md
+    - For Users:
+      - Creating an Account: create-account.md
+      - Multi-Tenancy: multi-tenancy.md
+      - Managing Users: users.md
+      - Managing Devices: devices.md
+      - Rules: rules.md
 theme: readthedocs
 
 markdown_extensions:

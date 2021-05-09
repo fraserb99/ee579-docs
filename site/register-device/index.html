@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Registering a Device - EE579 Group 4 Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Registering a Device";
+    var mkdocs_page_input_path = "register-device.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> EE579 Group 4 Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Registering a Device</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#registering-a-device">Registering a device</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-format">Request Format</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-body">Example Body</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#response-format">Response Format</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-body_1">Example Body</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mqtt/">Connecting to the broker</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">EE579 Group 4 Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Getting Started &raquo;</li>
+        
+      
+    
+    <li>Registering a Device</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h1>
+<h2 id="registering-a-device">Registering a device<a class="headerlink" href="#registering-a-device" title="Permanent link">#</a></h2>
+<p>In order for your device to connect to IoT Hub, it must first retreive credentials. This can be done by sending a <code>POST</code> request to <code>/devices/register</code>. This will register your device with our system and return credentials to allow connection over MQTT. The device should make this request when first powered on, but the same endpoint can be used even if a device is already registered in the system. This accounts for situations where the device may have lost it's credentials, and allows the device to make the request every time it powers on, if desired.</p>
+<h4 id="request-format">Request Format<a class="headerlink" href="#request-format" title="Permanent link">#</a></h4>
+<h6 id="example-body">Example Body<a class="headerlink" href="#example-body" title="Permanent link">#</a></h6>
+<pre><code>{
+    &quot;deviceId&quot;: &quot;&lt;string&gt;&quot;
+}
+</code></pre>
+<h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h6>
+<ul>
+<li><strong>deviceId</strong>: This should be a unique identifier. A MAC adress is recommended, but it can take any form - guid, uuid, etc.</li>
+</ul>
+<h4 id="response-format">Response Format<a class="headerlink" href="#response-format" title="Permanent link">#</a></h4>
+<h6 id="example-body_1">Example Body<a class="headerlink" href="#example-body_1" title="Permanent link">#</a></h6>
+<pre><code>{
+    &quot;host&quot;: &quot;IFTTT-Iot-Hub.azure-devices.net&quot;,
+    &quot;port&quot;: 8883,
+    &quot;topic&quot;: &quot;devices/{deviceId}/messages/devicebound/#&quot;,
+    &quot;password&quot;: &quot;SharedAccessSignature sr=IFTTT-Iot-Hub.azure-devices.net%2Fdevices%2F{deviceId}&amp;sig=KOYS9LgCJ9eH7TTlMIGvedxIVI3cXmha7uU6yB4Bs6M%3D&amp;se=88018657115&quot;
+}
+</code></pre>
+<h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h6>
+<ul>
+<li><strong>host</strong>: The MQTT broker url</li>
+<li><strong>port</strong>: The port the MQTT broker is listening on</li>
+<li><strong>topic</strong>: The topic that the device should subscribe to, to receive cloud-to-device messages</li>
+<li><strong>password</strong>: The password that should be used when connecting to the broker, in the form of a <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#use-a-shared-access-policy">SAS token</a></li>
+</ul>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">#</a></h2>
+<p>It may be neccessary to make this request on a computer, rather than IoT device when debugging. The <a href="https://ee579-dev-api.azurewebsites.net">API Swagger Docs</a> can be used to make this request and provides a prefilled request body. Any other method of making HTTP requests can also be used - cURL, <a href="https://postman.com">Postman</a>, etc.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="../mqtt/">Connecting to the broker</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mqtt/" class="btn btn-neutral float-right" title="Connecting to the broker">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../mqtt/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
