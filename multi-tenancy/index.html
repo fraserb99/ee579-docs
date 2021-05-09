@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Admin Interface - EE579 Group 4 Docs</title>
+  <title>Multi-Tenancy - EE579 Group 4 Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Admin Interface";
-    var mkdocs_page_input_path = "admin-interface.md";
+    var mkdocs_page_name = "Multi-Tenancy";
+    var mkdocs_page_input_path = "multi-tenancy.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,10 +59,22 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">For Users</span></p>
-                <ul>
+                <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../create-account/">Creating an Account</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../multi-tenancy/">Multi-Tenancy</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Multi-Tenancy</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-multi-tenancy">What is Multi-Tenancy?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multi-tenancy-in-this-application">Multi-Tenancy in this application</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-tenant">Creating a Tenant</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a>
+    </li>
+    </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../users/">Managing Users</a>
                     </li>
@@ -91,8 +103,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>For Users &raquo;</li>
+        
+      
     
-    <li>Admin Interface</li>
+    <li>Multi-Tenancy</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -103,11 +119,32 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="admin-interface">Admin Interface<a class="headerlink" href="#admin-interface" title="Permanent link">#</a></h1>
+                <h1 id="multi-tenancy">Multi-Tenancy<a class="headerlink" href="#multi-tenancy" title="Permanent link">#</a></h1>
+<h2 id="what-is-multi-tenancy">What is Multi-Tenancy?<a class="headerlink" href="#what-is-multi-tenancy" title="Permanent link">#</a></h2>
+<p>Multi-tenancy is an architecture that allows a single application to be used by multiple customers. This means that data in the application is scoped to the current customer and not visible to other customers of the application. An example of this is rhe university's use of Microsoft's suite of applications. In this case, the university has their own tenant. This tenant contains all of the data specific</p>
+<h2 id="multi-tenancy-in-this-application">Multi-Tenancy in this application<a class="headerlink" href="#multi-tenancy-in-this-application" title="Permanent link">#</a></h2>
+<p>Multi-tenancy in this application involves scoping rules, devices, and device groups to tenants. This allows multiple customers to use the application without other customers seeing their data. Users can then belong to multiple tenants, allowing them to view and manage their data.</p>
+<h3 id="creating-a-tenant">Creating a Tenant<a class="headerlink" href="#creating-a-tenant" title="Permanent link">#</a></h3>
+<p>When first creating an account a new tenant is created for you, allowing you to get started creating rules and adding devices. You may want to add another tenant in order to keep unrelated data separate - e.g., keeping rules and devices for each building in their own tenant. This can be done by clicking the 'Switch Tenant' button in the left drawer and then selecting 'Create a new tenant'.</p>
+<p><img alt="" src="../img/create-tenant.png" /></p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
+<ul>
+<li>Learn how to <a href="../users/">manage users</a> within tenants</li>
+<li>Find out how to <a href="../devices/">add and manage devices</a></li>
+</ul>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../users/" class="btn btn-neutral float-right" title="Managing Users">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../create-account/" class="btn btn-neutral" title="Creating an Account"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -131,6 +168,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href="../create-account/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../users/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

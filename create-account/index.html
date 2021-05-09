@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Admin Interface - EE579 Group 4 Docs</title>
+  <title>Creating an Account - EE579 Group 4 Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Admin Interface";
-    var mkdocs_page_input_path = "admin-interface.md";
+    var mkdocs_page_name = "Creating an Account";
+    var mkdocs_page_input_path = "create-account.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,8 +59,16 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">For Users</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../create-account/">Creating an Account</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Creating an Account</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#username-and-password">Username and Password</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#external-providers">External Providers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a>
+    </li>
+    </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../multi-tenancy/">Multi-Tenancy</a>
                     </li>
@@ -91,8 +99,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>For Users &raquo;</li>
+        
+      
     
-    <li>Admin Interface</li>
+    <li>Creating an Account</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -103,11 +115,33 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="admin-interface">Admin Interface<a class="headerlink" href="#admin-interface" title="Permanent link">#</a></h1>
+                <h1 id="create-an-account">Create an Account<a class="headerlink" href="#create-an-account" title="Permanent link">#</a></h1>
+<p>Visit <a href="https://www.ee579-group4.net/signup">https://www.ee579-group4.net/signup</a> to get started. </p>
+<p>There are several methods available for signing in:</p>
+<h4 id="username-and-password">Username and Password<a class="headerlink" href="#username-and-password" title="Permanent link">#</a></h4>
+<p>To create an account with a username and password, fill out the form on the sign up page. </p>
+<p><img alt="Login Form" src="../img/login-form.png" /></p>
+<p>You will then be sent an email to verify that you have access to the email address. You must then click the link in the email before you can sign in.</p>
+<h4 id="external-providers">External Providers<a class="headerlink" href="#external-providers" title="Permanent link">#</a></h4>
+<p>Logging in with an external provider allows you to reduce the number of passwords and accounts you have to manage. This site allows you to sign in with your Google or Microsoft account. Click the respective button to start the external sign in process. You will then be redirected to the external providers site where you can sign in.</p>
+<p>After signing in to the external providers account, you will be redirected back to this site and signed in. Verifying your email is not required when using external sign in as signing into the account verifies that you have access to the email.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
+<ul>
+<li>Learn about how <a href="../multi-tenancy/">Multi-Tenancy</a> works in this application</li>
+</ul>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../multi-tenancy/" class="btn btn-neutral float-right" title="Multi-Tenancy">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../mqtt/" class="btn btn-neutral" title="Connecting to the broker"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -131,6 +165,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href="../mqtt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../multi-tenancy/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

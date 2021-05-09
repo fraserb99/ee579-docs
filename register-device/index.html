@@ -51,7 +51,7 @@
                     <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">Getting Started</span></p>
+                <p class="caption"><span class="caption-text">For Developers</span></p>
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Registering a Device</a>
     <ul class="current">
@@ -84,6 +84,19 @@
                     <li class="toctree-l1"><a class="reference internal" href="../mqtt/">Connecting to the broker</a>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">For Users</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../create-account/">Creating an Account</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../multi-tenancy/">Multi-Tenancy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../users/">Managing Users</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../devices/">Managing Devices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../rules/">Rules</a>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
@@ -105,7 +118,7 @@
     
       
         
-          <li>Getting Started &raquo;</li>
+          <li>For Developers &raquo;</li>
         
       
     
@@ -122,7 +135,7 @@
               
                 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h1>
 <h2 id="registering-a-device">Registering a device<a class="headerlink" href="#registering-a-device" title="Permanent link">#</a></h2>
-<p>In order for your device to connect to IoT Hub, it must first retreive credentials. This can be done by sending a <code>POST</code> request to <code>/devices/register</code>. This will register your device with our system and return credentials to allow connection over MQTT. The device should make this request when first powered on, but the same endpoint can be used even if a device is already registered in the system. This accounts for situations where the device may have lost it's credentials, and allows the device to make the request every time it powers on, if desired.</p>
+<p>In order for your device to connect to IoT Hub, it must first retreive credentials. This can be done by sending a <code>POST</code> request to <code>https://ee579-dev-api.azurewebsites.net/devices/register</code>. This will register your device with our system and return credentials to allow connection over MQTT. The device should make this request when first powered on, but the same endpoint can be used even if a device is already registered in the system. This accounts for situations where the device may have lost it's credentials, and allows the device to make the request every time it powers on, if desired.</p>
 <h4 id="request-format">Request Format<a class="headerlink" href="#request-format" title="Permanent link">#</a></h4>
 <h6 id="example-body">Example Body<a class="headerlink" href="#example-body" title="Permanent link">#</a></h6>
 <pre><code>{

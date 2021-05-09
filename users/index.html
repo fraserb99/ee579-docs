@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Admin Interface - EE579 Group 4 Docs</title>
+  <title>Managing Users - EE579 Group 4 Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Admin Interface";
-    var mkdocs_page_input_path = "admin-interface.md";
+    var mkdocs_page_name = "Managing Users";
+    var mkdocs_page_input_path = "users.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,12 +59,18 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">For Users</span></p>
-                <ul>
+                <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../create-account/">Creating an Account</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../multi-tenancy/">Multi-Tenancy</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../users/">Managing Users</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Managing Users</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#roles">Roles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inviting-users">Inviting Users</a>
+    </li>
+    </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../devices/">Managing Devices</a>
                     </li>
@@ -91,8 +97,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>For Users &raquo;</li>
+        
+      
     
-    <li>Admin Interface</li>
+    <li>Managing Users</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -103,11 +113,30 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="admin-interface">Admin Interface<a class="headerlink" href="#admin-interface" title="Permanent link">#</a></h1>
+                <h1 id="users">Users<a class="headerlink" href="#users" title="Permanent link">#</a></h1>
+<p><img alt="" src="../img/users.png" /></p>
+<h2 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">#</a></h2>
+<p>Users can have one of two roles within a tenant:</p>
+<ul>
+<li><strong>User</strong> - Users with this role can manage devices, rules, and device groups. However, they cannot manage users belonging to the tenant or edit the tenant itself.</li>
+<li><strong>Owner</strong> - This user has full control over the tenant. They can manage everything a user can, along with inviting and removing users and editing the tenant.</li>
+</ul>
+<h2 id="inviting-users">Inviting Users<a class="headerlink" href="#inviting-users" title="Permanent link">#</a></h2>
+<p><img alt="" src="../img/invite-user.png" /></p>
+<p>Users can be invited to tenants by their email address. If the user already has an account, they will have immediate access to the tenant and receive an email telling them that they have been invited to your tenant. If they have not yet created an account they will receive an email informing them they have been invited to your tenant, including a link to sign up.</p>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../devices/" class="btn btn-neutral float-right" title="Managing Devices">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../multi-tenancy/" class="btn btn-neutral" title="Multi-Tenancy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -131,6 +160,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href="../multi-tenancy/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../devices/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
