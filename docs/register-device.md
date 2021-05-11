@@ -31,8 +31,8 @@ In order for your device to connect to IoT Hub, it must first retreive credentia
 
 * **connectionString**: The connection string the broker. {deviceId} should be replace with a unique identifier.  A MAC adress is recommended, but it can take any form - guid, uuid, etc.
 * **host**: The MQTT broker url.
-* **port**: The port the MQTT broker is listening on.
-
+* **topic**: The topic that the device should subscribe to, to receive cloud-to-device messages.
+* **password**: The password that should be used when connecting to the broker, in the form of a [SAS token](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#use-a-shared-access-policy).
 
 
 ## Debugging

@@ -6,6 +6,7 @@ nav:
       - Registering a Device: register-device.md
       - Connecting to the broker: mqtt.md
       - Messaging Schema: mqtt-schema.md
+      - Web Hooks: webhooks.md
     - For Users:
       - Creating an Account: create-account.md
       - Multi-Tenancy: multi-tenancy.md

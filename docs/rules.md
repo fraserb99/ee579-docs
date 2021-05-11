@@ -49,6 +49,14 @@ When using a potentiometer value as an input it should be noted that the rule wi
 
 This input allows you to use the temperature sensor on your device as a trigger for the rule. It functions in a similar way to the potentiometer trigger, with a range picker. Again this range can be inverted, and the rule is only triggered when the last value did not satisfy the conditions.
 
+#### Web Hooks
+
+![](img/webhies.png)
+
+This is an input that can be triggered via the invocation of a generated URL, commonly known as a web hook. It works similar to a physical input such as a button press, but instead of being triggered upon the button being pressed, the trigger happens upon invocation of the URL. After adding a rule with a web hook as an input, from the rules page on the website, find the added rule from which the invoke URL can be garnered. Below is an example of what this looks like. For more information for developers and using web hooks for interoperability please see [here](webhooks.md).
+
+![](img/webhy2.png)
+
 ## Outputs
 
 These are the outputs that will be performed when a rule is triggered. Multiple outputs can be performed for each rule.
