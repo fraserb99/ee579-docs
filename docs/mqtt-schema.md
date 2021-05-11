@@ -127,9 +127,8 @@ This message is sent to notify the microcontroller which input devices to config
 * **Message Body** - 
 ```
 {
-    ButtonPushed: bool 
-    Switch1: bool 
-    Switch2: bool 
+    Button1: bool 
+    Button2: bool 
     Potentiometer: bool 
     Temperature: bool 
 }
