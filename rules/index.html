@@ -59,6 +59,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../mqtt-schema/">Messaging Schema</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../webhooks/">Web Hooks</a>
+                    </li>
                 </ul>
                 <p class="caption"><span class="caption-text">For Users</span></p>
                 <ul class="current">
@@ -85,6 +87,8 @@
     <li class="toctree-l4"><a class="reference internal" href="#potentiometer">Potentiometer</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#temperature">Temperature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#web-hooks">Web Hooks</a>
     </li>
         </ul>
     </li>
@@ -176,8 +180,12 @@
 <p><img alt="" src="../img/pot-inverted.png" /></p>
 <p>When using a potentiometer value as an input it should be noted that the rule will not be triggered every time the potentiometer value changes if it is within the trigger range. Instead, the system keeps track of the last potentiometer value sent by the device and only triggers the rule if the last value was outwith the range and the new value is within it.</p>
 <h4 id="temperature">Temperature<a class="headerlink" href="#temperature" title="Permanent link">#</a></h4>
-<p><img alt="" src="img/temperature.png" /></p>
+<p><img alt="" src="../img/temperature.png" /></p>
 <p>This input allows you to use the temperature sensor on your device as a trigger for the rule. It functions in a similar way to the potentiometer trigger, with a range picker. Again this range can be inverted, and the rule is only triggered when the last value did not satisfy the conditions.</p>
+<h4 id="web-hooks">Web Hooks<a class="headerlink" href="#web-hooks" title="Permanent link">#</a></h4>
+<p><img alt="" src="../img/webhies.png" /></p>
+<p>This is an input that can be triggered via the invocation of a generated URL, commonly known as a web hook. It works similar to a physical input such as a button press, but instead of being triggered upon the button being pressed, the trigger happens upon invocation of the URL. After adding a rule with a web hook as an input, from the rules page on the website, find the added rule from which the invoke URL can be garnered. Below is an example of what this looks like. For more information for developers and using web hooks for interoperability please see <a href="../webhooks/">here</a>.</p>
+<p><img alt="" src="../img/webhy2.png" /></p>
 <h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h2>
 <p>These are the outputs that will be performed when a rule is triggered. Multiple outputs can be performed for each rule.</p>
 <h5 id="output-types">Output Types<a class="headerlink" href="#output-types" title="Permanent link">#</a></h5>

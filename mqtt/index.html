@@ -58,10 +58,22 @@
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Connecting to the broker</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#connecting">Connecting</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#connecting-using-the-iothub-sdks">Connecting using the IotHub SDKs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#using-our-example-code-for-an-esp8266">Using our Example Code for an ESP8266</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#connecting-directly-to-the-protocols">Connecting directly to the protocols</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../mqtt-schema/">Messaging Schema</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../webhooks/">Web Hooks</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">For Users</span></p>
@@ -115,6 +127,69 @@
               
                 <h1 id="mqtt-broker">MQTT Broker<a class="headerlink" href="#mqtt-broker" title="Permanent link">#</a></h1>
 <h2 id="connecting">Connecting<a class="headerlink" href="#connecting" title="Permanent link">#</a></h2>
+<p>To connect to IoTHub there are multiple different protocols that can be used, you can either directly connect to these protocols or prefferably use one of the IoTHub device SDKs.</p>
+<h3 id="connecting-using-the-iothub-sdks">Connecting using the IotHub SDKs<a class="headerlink" href="#connecting-using-the-iothub-sdks" title="Permanent link">#</a></h3>
+<p>Connecting to IoTHub using one of Microsoft's SDKs use a connection string to connect. The connection string can be garnered from the response from our API's register request. Using the SDKs is the recommended way of connecting for its ease of use, especially regarding certificate handling as IoTHub forces TLS/SSL.</p>
+<p>Some of the available SDKs include:</p>
+<ul>
+<li>
+<p><a href="https://github.com/Azure/azure-iot-sdk-c">C SDK</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Azure/azure-iot-sdk-python">Python SDK</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Azure/azure-iot-sdk-node">Node.js SDK</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Azure/azure-iot-sdk-java">Java SDK</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Azure/azure-iot-sdk-csharp">.NET SDK</a></p>
+</li>
+</ul>
+<h4 id="using-our-example-code-for-an-esp8266">Using our Example Code for an ESP8266<a class="headerlink" href="#using-our-example-code-for-an-esp8266" title="Permanent link">#</a></h4>
+<p>We have provided some example code for registering a device with the API and sending/receiving messages from IoTHub. This example code is for the ESP8266 Wifi Module, but the methods will be similar on alternative devices. The code can be pulled from this <a href="https://github.com/fraserb99/ee579-msp430.git">repository</a>. Cd into the esp_iothub_client directory for the example code. By following the instructions <a href="https://github.com/Azure/azure-iot-arduino">here</a>, you can setup the Arduino IDE with functionality for flashing our example code to the ESP8266.</p>
+<h3 id="connecting-directly-to-the-protocols">Connecting directly to the protocols<a class="headerlink" href="#connecting-directly-to-the-protocols" title="Permanent link">#</a></h3>
+<p>As MQTT is usually implemented on memory restricted devices, it is possible that the memory required to implement broker connection/interaction using an SDK is unavailable. For this reason, directly connecting to the protocol might be required. Below is a mosquitto subscribe command showing the parameters required to manually connect to the cloud device topic.</p>
+<pre><code>mosquitto_sub \
+    -h IFTTT-Iot-Hub.azure-devices.net \
+    -p 8883 \
+    -t &quot;devices/00:0a:95:9d:68:16/messages/devicebound/#&quot; \
+    -i 00:0a:95:9d:68:16 \
+    -u &quot;IFTTT-Iot-Hub.azure-devices.net/00:0a:95:9d:68:16&quot; \
+    -P &quot;SharedAccessSignature sr=IFTTT-Iot-Hub.azure-devices.net%2Fdevices%2F00%3A0a%3A95%3A9d%3A68%3A16&amp;sig=ulc08e%2FYp%2FMLJdyMLxsV7pqTQ12XamytzQjxFFithNg%3D&amp;se=1618623078&quot; \
+    --cafile C:\Users\Fraser\GitHub\ee579-api\EE579\EE579.Core\Slices\Devices\Simulate\iotHubCert.pem -d -V mqttv311 -q 1
+</code></pre>
+<ul>
+<li>
+<p><strong>-h</strong>: The host name for the broker. </p>
+</li>
+<li>
+<p><strong>-p</strong>: The port number of the broker.</p>
+</li>
+<li>
+<p><strong>-t</strong>: The topic the cloud to device messages will be received on.</p>
+</li>
+<li>
+<p><strong>-i</strong>: The unique identifier for the device. Recommended as the device MAC address.</p>
+</li>
+<li>
+<p><strong>-u</strong>: The MQTT username which here is just set to the hostname/deviceId.</p>
+</li>
+<li>
+<p><strong>-P</strong>: The password for the broker. Can be retrieved from the register API response.</p>
+</li>
+<li>
+<p><strong>--catfile</strong>: Path to the IotHub Certificate.</p>
+</li>
+<li>
+<p><strong>-V</strong>: The MQTT version. IotHub only supports MQTT version 3.1.1.</p>
+</li>
+<li>
+<p><strong>-q</strong>: This is for the quality of service. IoTHub only supports a quality service of 1.</p>
+</li>
+</ul>
               
             </div>
           </div>
