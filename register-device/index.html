@@ -83,6 +83,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../mqtt/">Connecting to the broker</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mqtt-schema/">Messaging Schema</a>
+                    </li>
                 </ul>
                 <p class="caption"><span class="caption-text">For Users</span></p>
                 <ul>
@@ -149,6 +151,7 @@
 <h4 id="response-format">Response Format<a class="headerlink" href="#response-format" title="Permanent link">#</a></h4>
 <h6 id="example-body_1">Example Body<a class="headerlink" href="#example-body_1" title="Permanent link">#</a></h6>
 <pre><code>{
+    &quot;connectionString&quot;: &quot;HostName=IFTTT-Iot-Hub.azure-devices.net;DeviceId={deviceId};SharedAccessKey=El50EkQ/S/9qp5dd/V3VpsizIvSv+SA8TVF3QiGc93A=&quot;,
     &quot;host&quot;: &quot;IFTTT-Iot-Hub.azure-devices.net&quot;,
     &quot;port&quot;: 8883,
     &quot;topic&quot;: &quot;devices/{deviceId}/messages/devicebound/#&quot;,
@@ -157,10 +160,9 @@
 </code></pre>
 <h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h6>
 <ul>
-<li><strong>host</strong>: The MQTT broker url</li>
-<li><strong>port</strong>: The port the MQTT broker is listening on</li>
-<li><strong>topic</strong>: The topic that the device should subscribe to, to receive cloud-to-device messages</li>
-<li><strong>password</strong>: The password that should be used when connecting to the broker, in the form of a <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#use-a-shared-access-policy">SAS token</a></li>
+<li><strong>connectionString</strong>: The connection string the broker. {deviceId} should be replace with a unique identifier.  A MAC adress is recommended, but it can take any form - guid, uuid, etc.</li>
+<li><strong>host</strong>: The MQTT broker url.</li>
+<li><strong>port</strong>: The port the MQTT broker is listening on.</li>
 </ul>
 <h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">#</a></h2>
 <p>It may be neccessary to make this request on a computer, rather than IoT device when debugging. The <a href="https://ee579-dev-api.azurewebsites.net">API Swagger Docs</a> can be used to make this request and provides a prefilled request body. Any other method of making HTTP requests can also be used - cURL, <a href="https://postman.com">Postman</a>, etc.</p>

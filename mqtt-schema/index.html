@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Messaging Schema - EE579 Group 4 Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Messaging Schema";
+    var mkdocs_page_input_path = "mqtt-schema.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> EE579 Group 4 Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">For Developers</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../register-device/">Registering a Device</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mqtt/">Connecting to the broker</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Messaging Schema</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#device-to-cloud-messages">Device to Cloud Messages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#button-pushed">Button Pushed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#switch-flipped">Switch Flipped</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#potentiometer-input">Potentiometer Input</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#temperature-input">Temperature Input</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cloud-to-device-messages">Cloud to Device Messages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#turn-led-on">Turn LED On</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#breath-led">Breath LED</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#blink-led">Blink LED</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fade-led">Fade LED</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cycle-led">Cycle LED</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sound-buzzer">Sound Buzzer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#beep-buzzer">Beep Buzzer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configure-device">Configure Device</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">For Users</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../create-account/">Creating an Account</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../multi-tenancy/">Multi-Tenancy</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../users/">Managing Users</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../devices/">Managing Devices</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../rules/">Rules</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">EE579 Group 4 Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>For Developers &raquo;</li>
+        
+      
+    
+    <li>Messaging Schema</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mqtt-messaging-schema">MQTT Messaging Schema<a class="headerlink" href="#mqtt-messaging-schema" title="Permanent link">#</a></h1>
+<h2 id="device-to-cloud-messages">Device to Cloud Messages<a class="headerlink" href="#device-to-cloud-messages" title="Permanent link">#</a></h2>
+<h3 id="button-pushed">Button Pushed<a class="headerlink" href="#button-pushed" title="Permanent link">#</a></h3>
+<p>This message is sent to the broker whenever a button is pushed on the microcontroller.</p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/InputType=ButtonPushed</code>  </li>
+<li><strong>Message Body</strong> - <code>Duration: int - length the button is held in ms</code> </li>
+</ul>
+<h3 id="switch-flipped">Switch Flipped<a class="headerlink" href="#switch-flipped" title="Permanent link">#</a></h3>
+<p>This message is sent to the broker whenever the state of a switch changes. </p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/InputType=SwitchFlipped&amp;Peripheral={[Switch1, Switch2]}</code>  </li>
+<li><strong>Message Body</strong> - <code>Value: bool – whether the switch is on or off</code> </li>
+</ul>
+<h3 id="potentiometer-input">Potentiometer Input<a class="headerlink" href="#potentiometer-input" title="Permanent link">#</a></h3>
+<p>This message is sent every time the analogue value from the potentiometer is read. The value is sent with this message.</p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/InputType=PotentiometerValue</code>  </li>
+<li><strong>Message Body</strong> - <code>Value: int (0 - 1023) - the analogue value of the potentiometer</code> </li>
+</ul>
+<h3 id="temperature-input">Temperature Input<a class="headerlink" href="#temperature-input" title="Permanent link">#</a></h3>
+<p>This message is sent every time the analogue value from the temperature sensor is read. The value is sent with this message.</p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/InputType=PotentiometerValue</code>  </li>
+<li><strong>Message Body</strong> - <code>Value: int (-50 to 100) - the degrees celcius read from the temperature sensor</code> </li>
+</ul>
+<h2 id="cloud-to-device-messages">Cloud to Device Messages<a class="headerlink" href="#cloud-to-device-messages" title="Permanent link">#</a></h2>
+<h3 id="turn-led-on">Turn LED On<a class="headerlink" href="#turn-led-on" title="Permanent link">#</a></h3>
+<p>This message is sent to notify the microcontroller to turn an LED on/off and with the specified colour. </p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/OutputType=LedOutput&amp;Peripheral={[Led1, Led2, Led3]}</code>  </li>
+<li><strong>Message Body</strong> - </li>
+</ul>
+<pre><code>{
+    Value: bool – the desired state of the LED.
+    Colour (Led3 only): enum - [Red/green/blue/purple/yellow/white]
+}
+</code></pre>
+<h3 id="breath-led">Breath LED<a class="headerlink" href="#breath-led" title="Permanent link">#</a></h3>
+<p>This message is sent to notify the microcontroller to breathe an LED at a specified speed and colour.</p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/OutputType=LedBreathe&amp;Peripheral={[Led1, Led2, Led3]}</code>  </li>
+<li><strong>Message Body</strong> - </li>
+</ul>
+<pre><code>{
+    Period: int – how long the period of the cycle should be in ms.
+    Colour (Led3 only): enum - [Red/green/blue/purple/yellow/white]
+}
+</code></pre>
+<h3 id="blink-led">Blink LED<a class="headerlink" href="#blink-led" title="Permanent link">#</a></h3>
+<p>This message is sent to notify the microcontroller to blink an LED at a specified speed and colour.</p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/OutputType=LedBlink&amp;Peripheral={[Led1, Led2, Led3]}</code>  </li>
+<li><strong>Message Body</strong> - </li>
+</ul>
+<pre><code>{
+    Period: int – how long the period of the cycle should be in ms.
+    Colour (Led3 only): enum - [Red/green/blue/purple/yellow/white]
+}
+</code></pre>
+<h3 id="fade-led">Fade LED<a class="headerlink" href="#fade-led" title="Permanent link">#</a></h3>
+<p>This message is sent to notify the microcontroller to fade an LED to a desired state at a specified speed and colour.</p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/OutputType=LedFade&amp;Peripheral={[Led1, Led2, Led3]}</code>  </li>
+<li><strong>Message Body</strong> - </li>
+</ul>
+<pre><code>{
+    Value: bool – the desired state of the LED. Duration: int – the duration the fade should take in ms.
+    Colour (Led3 only): enum - [Red/green/blue/purple/yellow/white]
+}
+</code></pre>
+<h3 id="cycle-led">Cycle LED<a class="headerlink" href="#cycle-led" title="Permanent link">#</a></h3>
+<p>This message is sent to notify the microcontroller to cycle the LED colour in the specified direction. </p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/OutputType=LedCycle</code>  </li>
+<li><strong>Message Body</strong> - </li>
+</ul>
+<pre><code>{
+    Direction: bool – cycle forwards or backwards.
+    Period: int – how long the period of the cycle should be in ms 
+} 
+</code></pre>
+<h3 id="sound-buzzer">Sound Buzzer<a class="headerlink" href="#sound-buzzer" title="Permanent link">#</a></h3>
+<p>This message is sent to notify the microcontroller to turn the piezo buzzer on for the specified length of time. </p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/OutputType=BuzzerOn</code>  </li>
+<li><strong>Message Body</strong> - <code>Duration: int - the duration the buzzer should be on in ms</code> </li>
+</ul>
+<h3 id="beep-buzzer">Beep Buzzer<a class="headerlink" href="#beep-buzzer" title="Permanent link">#</a></h3>
+<p>This message is sent to make the microcontroller toggle a buzzer at the desired rate. </p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/OutputType=BuzzerBeep</code>  </li>
+<li><strong>Message Body</strong> - </li>
+</ul>
+<pre><code>{
+    OnDuration: int - the duration the buzzer should be on in ms 
+    OffDuration: int - the duration the buzzer should be off in ms 
+}
+</code></pre>
+<h3 id="configure-device">Configure Device<a class="headerlink" href="#configure-device" title="Permanent link">#</a></h3>
+<p>This message is sent to notify the microcontroller which input devices to configure for sending input messages.  </p>
+<ul>
+<li><strong>Property Bag</strong> - <code>/MessageType=DeviceConfig</code>  </li>
+<li><strong>Message Body</strong> - </li>
+</ul>
+<pre><code>{
+    Button1: bool 
+    Button2: bool 
+    Potentiometer: bool 
+    Temperature: bool 
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../create-account/" class="btn btn-neutral float-right" title="Creating an Account">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../mqtt/" class="btn btn-neutral" title="Connecting to the broker"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../mqtt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../create-account/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

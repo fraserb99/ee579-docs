@@ -57,6 +57,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../mqtt/">Connecting to the broker</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mqtt-schema/">Messaging Schema</a>
+                    </li>
                 </ul>
                 <p class="caption"><span class="caption-text">For Users</span></p>
                 <ul class="current">
@@ -70,6 +72,44 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Rules</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#creating-rules">Creating Rules</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trigger">Trigger</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#input-types">Input Types</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#button-pushed">Button Pushed</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#switch-flipped">Switch Flipped</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#potentiometer">Potentiometer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#temperature">Temperature</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#output-types">Output Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#buzzer-on">Buzzer - On</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#buzzer-beep">Buzzer - Beep</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led-output">LED - Output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led-blink">LED - Blink</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led-breathe">LED - Breathe</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led-fade">LED - Fade</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#led-cycle">LED - Cycle</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -110,6 +150,60 @@
             <div class="section">
               
                 <h1 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link">#</a></h1>
+<p>Rules are the core functionality of the system, allowing inputs from devices to trigger outputs.</p>
+<h2 id="creating-rules">Creating Rules<a class="headerlink" href="#creating-rules" title="Permanent link">#</a></h2>
+<p>Navigate to the rules page and press the add button to create a new rule. The rule form is shown below:</p>
+<p><img alt="" src="../img/add-rule.png" /></p>
+<p>The form is composed of 3 sections: Name, Trigger, and Outputs.</p>
+<h2 id="trigger">Trigger<a class="headerlink" href="#trigger" title="Permanent link">#</a></h2>
+<p>The Rule trigger is the device input that will trigger the rule and cause the outputs to be performed. This is composed of the input type and parameters desired, and the device or device group the input will come from. If a device group is chosen, an input matching the desired type and parameters from any of the groups devices will trigger the rule.</p>
+<p>There are several input types that can be chosen:</p>
+<h3 id="input-types">Input Types<a class="headerlink" href="#input-types" title="Permanent link">#</a></h3>
+<h4 id="button-pushed">Button Pushed<a class="headerlink" href="#button-pushed" title="Permanent link">#</a></h4>
+<p><img alt="" src="../img/button-pushed.png" /></p>
+<p>This input is sent when the button is pushed on a device. The duration desired to trigger the rule can be set to one of three values:</p>
+<ul>
+<li><strong>Short Press</strong> - 0s &lt; 2s</li>
+<li><strong>Medium Press</strong> - 2s &lt; 10s</li>
+<li><strong>Long Press</strong> - &gt; 10s</li>
+</ul>
+<h4 id="switch-flipped">Switch Flipped<a class="headerlink" href="#switch-flipped" title="Permanent link">#</a></h4>
+<p><img alt="" src="../img/switch-flipped.png" /></p>
+<p>This input allows rules to be triggered when one of the 2 switches on the device are flipped. The peripheral (switch 1 or 2) can be chosen and the switch state. The switch state is used to specify whether the switch should be triggered when the switch is flipped to an on or off state.</p>
+<h4 id="potentiometer">Potentiometer<a class="headerlink" href="#potentiometer" title="Permanent link">#</a></h4>
+<p><img alt="" src="../img/potentiometer.png" /></p>
+<p>This input allows you to specify a range of potentiometer values that will trigger the rule. The default configuration is a range between two values but this can also be inverted to allow for specifying a range of values less than the lower value <em>or</em> greater than the higher value. This can be done by pressing the button between the values, or manually setting the greater than value to be higher than the less than.</p>
+<p><img alt="" src="../img/pot-inverted.png" /></p>
+<p>When using a potentiometer value as an input it should be noted that the rule will not be triggered every time the potentiometer value changes if it is within the trigger range. Instead, the system keeps track of the last potentiometer value sent by the device and only triggers the rule if the last value was outwith the range and the new value is within it.</p>
+<h4 id="temperature">Temperature<a class="headerlink" href="#temperature" title="Permanent link">#</a></h4>
+<p><img alt="" src="img/temperature.png" /></p>
+<p>This input allows you to use the temperature sensor on your device as a trigger for the rule. It functions in a similar way to the potentiometer trigger, with a range picker. Again this range can be inverted, and the rule is only triggered when the last value did not satisfy the conditions.</p>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h2>
+<p>These are the outputs that will be performed when a rule is triggered. Multiple outputs can be performed for each rule.</p>
+<h5 id="output-types">Output Types<a class="headerlink" href="#output-types" title="Permanent link">#</a></h5>
+<h3 id="buzzer-on">Buzzer - On<a class="headerlink" href="#buzzer-on" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/buzzer-on.png" /></p>
+<p>This output is used to sound a continuous buzzer tone for the specified duration.</p>
+<h3 id="buzzer-beep">Buzzer - Beep<a class="headerlink" href="#buzzer-beep" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/buzzer-beep.png" /></p>
+<p>This output beeps the buzzer with the duty cycle specified. The minimum values for the on and off duration are 200ms.</p>
+<h3 id="led-output">LED - Output<a class="headerlink" href="#led-output" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/led-output.png" /></p>
+<p>This output can be used to turn an LED on or off. There are 3 LEDs that can be selected, corresponding to the LEDs on the MSP430G2553. As such, LEDs 1 and 2 are single colour, but a colour - <em>Red, Green, Blue, Purple, Yellow, White</em> - can be chosen when LED 3 is selected.</p>
+<p><img alt="" src="../img/led-colour.png" /></p>
+<p>This choice of colour also applies to the other output types involving LED 3.</p>
+<h3 id="led-blink">LED - Blink<a class="headerlink" href="#led-blink" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/led-blink.png" /></p>
+<p>This output blinks the LED with the specified period.</p>
+<h3 id="led-breathe">LED - Breathe<a class="headerlink" href="#led-breathe" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/led-breathe.png" /></p>
+<p>This output makes the LED 'breathe' by smoothly changing the brightness from zero to full brightness and back again, and then repeats. The period of this breathing can be configured.</p>
+<h3 id="led-fade">LED - Fade<a class="headerlink" href="#led-fade" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/led-fade.png" /></p>
+<p>This output fades the LED off over a given period of time.</p>
+<h3 id="led-cycle">LED - Cycle<a class="headerlink" href="#led-cycle" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/led-cycle.png" /></p>
+<p>This output applies only to LED 3 as it cycles through all possible colours. The direction of the cycle can be chosen along with the period - the total amount of time it will take to cycle through all colours</p>
               
             </div>
           </div>
