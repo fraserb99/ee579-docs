@@ -144,10 +144,12 @@
             <div class="section">
               
                 <h1 id="mqtt-messaging-schema">MQTT Messaging Schema<a class="headerlink" href="#mqtt-messaging-schema" title="Permanent link">#</a></h1>
+<p>This page shows schema for messages between device and cloud. All message parameters should be sent in the message body, in JSON format as detailed below. It should be noted that the JSON is case-sensitive so all JSON key and values must be formatted as shown in the 'Message Body' schema.</p>
 <h2 id="device-to-cloud-messages">Device to Cloud Messages<a class="headerlink" href="#device-to-cloud-messages" title="Permanent link">#</a></h2>
+<p>Device-to-cloud messages should be sent when an input has been triggered. These messages will be used to trigger rules if the conditions are met.</p>
 <h3 id="button-pushed">Button Pushed<a class="headerlink" href="#button-pushed" title="Permanent link">#</a></h3>
 <p>This message is sent to the broker whenever a button is pushed on the microcontroller.</p>
-<p><strong>Message Body</strong>: </p>
+<p><strong>Message Body</strong></p>
 <pre><code>{
     &quot;InputType&quot;: enum, // [Button1, Button2]
     &quot;Value&quot;: int // The length the button is held in ms
@@ -157,7 +159,7 @@
 <p>This message is sent every time the analogue value from the potentiometer is read. The value is sent with this message.</p>
 <p><strong>Message Body</strong>:</p>
 <pre><code>{
-    &quot;InputType&quot;: &quot;PotentiometerValue&quot;
+    &quot;InputType&quot;: &quot;PotentiometerValue&quot;,
     &quot;Value&quot;: int // (0 - 1023) - the analogue value of the potentiometer  
 }
 </code></pre>
@@ -165,11 +167,12 @@
 <p>This message is sent every time the analogue value from the temperature sensor is read. The value is sent with this message.</p>
 <p><strong>Message Body</strong>:</p>
 <pre><code>{
-    &quot;InputType&quot;=&quot;PotentiometerValue&quot;
-    &quot;Value&quot;: int // (-50 to 100) - the degrees celcius read from the temperature sensor
+    &quot;InputType&quot;: &quot;PotentiometerValue&quot;,
+    &quot;Value&quot;: int // (-50 to 100) - the temperature in degrees celcius
 }
 </code></pre>
 <h2 id="cloud-to-device-messages">Cloud to Device Messages<a class="headerlink" href="#cloud-to-device-messages" title="Permanent link">#</a></h2>
+<p>Cloud-to-device messages are used to perform outputs on the device as a result of a rule being triggered. There is also a message used to configure the device's inputs to reduce the number of messages sent.</p>
 <h3 id="led-output">LED Output<a class="headerlink" href="#led-output" title="Permanent link">#</a></h3>
 <p>This message is sent to notify the microcontroller to turn an LED on/off and with the specified colour. </p>
 <p><strong>Message Body</strong>:</p>
@@ -177,7 +180,7 @@
     &quot;OutputType&quot;: &quot;LedOutput&quot;,
     &quot;Peripheral&quot;: enum, // [Led1, Led2, Led3]
     &quot;Value&quot;: bool, // the desired state of the LED.
-    &quot;Colour&quot; enum // (Led3 only): [Red/Green/Blue/Purple/Yellow/White]
+    &quot;Colour&quot; enum // (Led3 only) [Red/Green/Blue/Purple/Yellow/White]
 }
 </code></pre>
 <h3 id="breath-led">Breath LED<a class="headerlink" href="#breath-led" title="Permanent link">#</a></h3>
@@ -187,7 +190,7 @@
     &quot;OutputType&quot;: &quot;LedBreathe&quot;,
     &quot;Peripheral&quot;: enum, // [Led1, Led2, Led3]
     &quot;Period&quot;: int, // how long the period of the breathing should be in ms.
-    &quot;Colour&quot;: enum // (Led3 only): [Red/Green/Blue/Purple/Yellow/White]
+    &quot;Colour&quot;: enum // (Led3 only) [Red/Green/Blue/Purple/Yellow/White]
 }
 </code></pre>
 <h3 id="blink-led">Blink LED<a class="headerlink" href="#blink-led" title="Permanent link">#</a></h3>
@@ -197,14 +200,14 @@
     &quot;OutputType&quot;: &quot;LedBlink&quot;,
     &quot;Peripheral&quot;: enum, // [Led1, Led2, Led3]
     &quot;Period&quot;: int, // how long the period of the blinking should be in ms.
-    &quot;Colour&quot;: enum // (Led3 only): [Red/Green/Blue/Purple/Yellow/White]
+    &quot;Colour&quot;: enum // (Led3 only) [Red/Green/Blue/Purple/Yellow/White]
 }
 </code></pre>
 <h3 id="fade-led">Fade LED<a class="headerlink" href="#fade-led" title="Permanent link">#</a></h3>
 <p>This message is sent to notify the microcontroller to fade an LED to a desired state at a specified speed and colour.</p>
 <p><strong>Message Body</strong>:</p>
 <pre><code>{
-    &quot;OutputType&quot;=&quot;LedFade&quot;,
+    &quot;OutputType&quot;: &quot;LedFade&quot;,
     &quot;Peripheral&quot;: enum, // [Led1, Led2, Led3]
     &quot;Value&quot;: bool, // the desired state of the LED.
     &quot;Duration&quot;: int, // the duration the fade should take in ms.
@@ -216,7 +219,7 @@
 <p><strong>Message Body</strong>:</p>
 <pre><code>{
     &quot;OutputType&quot;: &quot;LedCycle&quot;,
-    &quot;Direction&quot;: bool, // cycle forwards or backwards -forwards = true
+    &quot;Direction&quot;: bool, // cycle forwards or backwards - [true/false] respectively
     &quot;Period&quot;: int // how long the period of the cycle should be in ms 
 }
 </code></pre>
@@ -224,7 +227,7 @@
 <p>This message is sent to notify the microcontroller to turn the piezo buzzer on for the specified length of time. </p>
 <p><strong>Message Body</strong>:</p>
 <pre><code>{
-    &quot;OutputType&quot;: &quot;BuzzerOn&quot;
+    &quot;OutputType&quot;: &quot;BuzzerOn&quot;,
     &quot;Duration&quot;: int, // the duration the buzzer should be on in ms 
 }
 </code></pre>
@@ -232,19 +235,20 @@
 <p>This message is sent to make the microcontroller toggle a buzzer at the desired rate. </p>
 <p><strong>Message Body</strong>:</p>
 <pre><code>{
-    &quot;OutputType&quot;: &quot;BuzzerBeep&quot;
-    &quot;OnDuration&quot;: int // the duration the buzzer should be on in ms 
+    &quot;OutputType&quot;: &quot;BuzzerBeep&quot;,
+    &quot;OnDuration&quot;: int, // the duration the buzzer should be on in ms 
     &quot;OffDuration&quot;: int // the duration the buzzer should be off in ms 
 }
 </code></pre>
 <h3 id="configure-device">Configure Device<a class="headerlink" href="#configure-device" title="Permanent link">#</a></h3>
-<p>This message is sent to notify the microcontroller which input devices are involved in rules. This is used to limit the number of messages sent by devices - if an input device is not involved in any rules, messages should not be sent to the broker when its value changes</p>
+<p>This message is sent to notify the microcontroller which input devices are involved in rules. This is used to limit the number of messages sent by devices - if an input device is not involved in any rules, messages should not be sent to the broker when its value changes. </p>
+<p>This message is sent whenever a device connects to the broker, or if a rule is created, updated, or deleted involving the device.</p>
 <p><strong>Message Body</strong>:</p>
 <pre><code>{
-    &quot;MessageType&quot;: &quot;DeviceConfig&quot;
-    &quot;Button1&quot;: bool
-    &quot;Button2&quot;: bool
-    &quot;Potentiometer&quot;: bool
+    &quot;MessageType&quot;: &quot;DeviceConfig&quot;,
+    &quot;Button1&quot;: bool,
+    &quot;Button2&quot;: bool,
+    &quot;Potentiometer&quot;: bool,
     &quot;Temperature&quot;: bool
 }
 </code></pre>
