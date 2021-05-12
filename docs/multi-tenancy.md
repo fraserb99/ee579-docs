@@ -2,7 +2,7 @@
 
 ## What is Multi-Tenancy?
 
-Multi-tenancy is an architecture that allows a single application to be used by multiple customers. This means that data in the application is scoped to the current customer and not visible to other customers of the application. An example of this is rhe university's use of Microsoft's suite of applications. In this case, the university has their own tenant. This tenant contains all of the data specific
+Multi-tenancy is an architecture that allows a single application to be used by multiple customers. This means that data in the application is scoped to the current customer and not visible to other customers of the application. An example of this is the university's use of Microsoft's suite of applications. In this case, the university has their own tenant. This tenant then contains all of the data specific to the university, like users, sharepoint data, email, etc and some services can be accessed by a tenant-specific URL - e.g., strath.sharepoint.com.
 
 ## Multi-Tenancy in this application
 

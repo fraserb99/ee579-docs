@@ -17,6 +17,8 @@ nav:
       - Rules: rules.md
     - For Maintainers:
       - API: api.md
+      - Front End: front-end.md
+      - Cloud Architecture: cloud-architecture.md
 theme: material
 
 markdown_extensions:
@@ -25,6 +27,11 @@ markdown_extensions:
     - fenced_code
     - pymdownx.highlight
     - pymdownx.superfences
+    - attr_list
+    - abbr
+    - pymdownx.tabbed
+    - pymdownx.details
+    - admonition
 
 plugins:
     - search

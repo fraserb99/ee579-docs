@@ -101,7 +101,7 @@ This message is sent to notify the microcontroller to fade an LED to a desired s
     "Duration": int, // the duration the fade should take in ms.
     "Colour": enum // (Led3 only): [Red/Green/Blue/Purple/Yellow/White]
 }
-``` 
+```
 
 ### Cycle LED 3
 
@@ -114,7 +114,7 @@ This message is sent to notify the microcontroller to cycle the LED colour in th
     "Direction": boolean, // cycle forwards or backwards - [true/false] respectively
     "Period": int // how long the period of the cycle should be in ms 
 }
-``` 
+```
 
 ### Buzzer On
 
