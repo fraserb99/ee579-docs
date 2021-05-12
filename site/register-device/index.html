@@ -486,6 +486,72 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        For Maintainers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="For Maintainers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          For Maintainers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-end/" class="md-nav__link">
+        Front End
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-architecture/" class="md-nav__link">
+        Cloud Architecture
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -614,24 +680,24 @@
 <p>In order for your device to connect to IoT Hub, it must first retreive credentials. This can be done by sending a <code>POST</code> request to <code>https://ee579-dev-api.azurewebsites.net/devices/register</code>. This will register your device with our system and return credentials to allow connection over MQTT. The device should make this request when first powered on, but the same endpoint can be used even if a device is already registered in the system. This accounts for situations where the device may have lost it's credentials, and allows the device to make the request every time it powers on, if desired.</p>
 <h4 id="request-format">Request Format<a class="headerlink" href="#request-format" title="Permanent link">#</a></h4>
 <h6 id="example-body">Example Body<a class="headerlink" href="#example-body" title="Permanent link">#</a></h6>
-<pre><code>{
-    &quot;deviceId&quot;: &quot;&lt;string&gt;&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;deviceId&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;string&gt;&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h6>
 <ul>
 <li><strong>deviceId</strong>: This should be a unique identifier. A MAC adress is recommended, but it can take any form - guid, uuid, etc.</li>
 </ul>
 <h4 id="response-format">Response Format<a class="headerlink" href="#response-format" title="Permanent link">#</a></h4>
 <h6 id="example-body_1">Example Body<a class="headerlink" href="#example-body_1" title="Permanent link">#</a></h6>
-<pre><code>{
-    &quot;connectionString&quot;: &quot;HostName=IFTTT-Iot-Hub.azure-devices.net;DeviceId={deviceId};SharedAccessKey=El50EkQ/S/9qp5dd/V3VpsizIvSv+SA8TVF3QiGc93A=&quot;,
-    &quot;host&quot;: &quot;IFTTT-Iot-Hub.azure-devices.net&quot;,
-    &quot;port&quot;: 8883,
-    &quot;topic&quot;: &quot;devices/{deviceId}/messages/devicebound/#&quot;,
-    &quot;password&quot;: &quot;SharedAccessSignature sr=IFTTT-Iot-Hub.azure-devices.net%2Fdevices%2F{deviceId}&amp;sig=KOYS9LgCJ9eH7TTlMIGvedxIVI3cXmha7uU6yB4Bs6M%3D&amp;se=88018657115&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;connectionString&quot;</span><span class="p">:</span> <span class="s2">&quot;HostName=IFTTT-Iot-Hub.azure-devices.net;DeviceId={deviceId};SharedAccessKey=El50EkQ/S/9qp5dd/V3VpsizIvSv+SA8TVF3QiGc93A=&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;IFTTT-Iot-Hub.azure-devices.net&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8883</span><span class="p">,</span>
+    <span class="nt">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;devices/{deviceId}/messages/devicebound/#&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;SharedAccessSignature sr=IFTTT-Iot-Hub.azure-devices.net%2Fdevices%2F{deviceId}&amp;sig=KOYS9LgCJ9eH7TTlMIGvedxIVI3cXmha7uU6yB4Bs6M%3D&amp;se=88018657115&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h6>
 <ul>
 <li><strong>connectionString</strong>: The connection string the broker. {deviceId} should be replace with a unique identifier.  A MAC adress is recommended, but it can take any form - guid, uuid, etc.</li>

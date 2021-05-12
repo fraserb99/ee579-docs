@@ -445,6 +445,72 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        For Maintainers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="For Maintainers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          For Maintainers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../front-end/" class="md-nav__link">
+        Front End
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-architecture/" class="md-nav__link">
+        Cloud Architecture
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -554,15 +620,17 @@
 <p>We have provided some example code for registering a device with the API and sending/receiving messages from IoTHub. This example code is for the ESP8266 Wifi Module, but the methods will be similar on alternative devices. The code can be pulled from this <a href="https://github.com/fraserb99/ee579-msp430.git">repository</a>. Cd into the esp_iothub_client directory for the example code. By following the instructions <a href="https://github.com/Azure/azure-iot-arduino">here</a>, you can setup the Arduino IDE with functionality for flashing our example code to the ESP8266.</p>
 <h3 id="connecting-directly-to-the-protocols">Connecting directly to the protocols<a class="headerlink" href="#connecting-directly-to-the-protocols" title="Permanent link">#</a></h3>
 <p>As MQTT is usually implemented on memory restricted devices, it is possible that the memory required to implement broker connection/interaction using an SDK is unavailable. For this reason, directly connecting to the protocol might be required. Below is a mosquitto subscribe command showing the parameters required to manually connect to the cloud device topic.</p>
-<pre><code>mosquitto_sub \
-    -h IFTTT-Iot-Hub.azure-devices.net \
-    -p 8883 \
-    -t &quot;devices/00:0a:95:9d:68:16/messages/devicebound/#&quot; \
-    -i 00:0a:95:9d:68:16 \
-    -u &quot;IFTTT-Iot-Hub.azure-devices.net/00:0a:95:9d:68:16&quot; \
-    -P &quot;SharedAccessSignature sr=IFTTT-Iot-Hub.azure-devices.net%2Fdevices%2F00%3A0a%3A95%3A9d%3A68%3A16&amp;sig=ulc08e%2FYp%2FMLJdyMLxsV7pqTQ12XamytzQjxFFithNg%3D&amp;se=1618623078&quot; \
-    --cafile C:\Users\Fraser\GitHub\ee579-api\EE579\EE579.Core\Slices\Devices\Simulate\iotHubCert.pem -d -V mqttv311 -q 1
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nx">mosquitto_sub</span> <span class="o">\</span>
+    <span class="o">-</span><span class="nx">h</span> <span class="nx">IFTTT</span><span class="o">-</span><span class="nx">Iot</span><span class="o">-</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">azure</span><span class="o">-</span><span class="nx">devices</span><span class="p">.</span><span class="nx">net</span> <span class="o">\</span>
+    <span class="o">-</span><span class="nx">p</span> <span class="mf">8883</span> <span class="o">\</span>
+    <span class="o">-</span><span class="nx">t</span> <span class="s2">&quot;devices/00:0a:95:9d:68:16/messages/devicebound/#&quot;</span> <span class="o">\</span>
+    <span class="o">-</span><span class="nx">i</span> <span class="mo">00</span><span class="o">:</span><span class="mf">0</span><span class="nx">a</span><span class="o">:</span><span class="mf">95</span><span class="o">:</span><span class="mf">9</span><span class="nx">d</span><span class="o">:</span><span class="mf">68</span><span class="o">:</span><span class="mf">16</span> <span class="o">\</span>
+    <span class="o">-</span><span class="nx">u</span> <span class="s2">&quot;IFTTT-Iot-Hub.azure-devices.net/00:0a:95:9d:68:16&quot;</span> <span class="o">\</span>
+    <span class="o">-</span><span class="nx">P</span> <span class="s2">&quot;SharedAccessSignature sr=IFTTT-Iot-Hub.azure-devices.net%2Fdevices%2F00%3A0a%3A95%3A9d%3A68%3A16&amp;sig=ulc08e%2FYp%2FMLJdyMLxsV7pqTQ12XamytzQjxFFithNg%3D&amp;se=1618623078&quot;</span> <span class="o">\</span>
+    <span class="o">--</span><span class="nx">cafile</span> <span class="nx">C</span><span class="o">:</span><span class="err">\</span><span class="nx">Users</span><span class="err">\</span><span class="nx">Fraser</span><span class="err">\</span><span class="nx">GitHub</span><span class="err">\</span><span class="nx">ee579</span><span class="o">-</span><span class="nx">api</span><span class="err">\</span><span class="nx">EE579</span><span class="err">\</span><span class="nx">EE579</span><span class="p">.</span><span class="nx">Core</span><span class="err">\</span><span class="nx">Slices</span><span class="err">\</span><span class="nx">Devices</span><span class="err">\</span><span class="nx">Simulate</span><span class="err">\</span><span class="nx">iotHubCert</span><span class="p">.</span><span class="nx">pem</span> 
+    <span class="o">-</span><span class="nx">V</span> <span class="nx">mqttv311</span> <span class="o">\</span>
+    <span class="o">-</span><span class="nx">q</span> <span class="mf">1</span>
+</code></pre></div>
 <ul>
 <li>
 <p><strong>-h</strong>: The host name for the broker. </p>
@@ -583,7 +651,7 @@
 <p><strong>-P</strong>: The password for the broker. Can be retrieved from the register API response.</p>
 </li>
 <li>
-<p><strong>--catfile</strong>: Path to the IotHub Certificate.</p>
+<p><strong>--cafile</strong>: Path to the IotHub Certificate.</p>
 </li>
 <li>
 <p><strong>-V</strong>: The MQTT version. IotHub only supports MQTT version 3.1.1.</p>
