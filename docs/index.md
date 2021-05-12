@@ -2,7 +2,9 @@
 
 This site provides documentation to allow integration with our API and MQTT Broker.
 
-Read the [Getting Started](register-device.md) docs if you would like information on how to integrate your IoT device with our system.
+If you would like to learn the web interface and functionality provided by the system you can start by [Creating an Account](create-account.md). Then you can get started adding [Devices](devices.md) and [Rules](rules.md)
+
+If you would like information on how to develop your own IoT device and integrate with our system, start by reading the [Register a Device](register-device.md) page.
 
 ## System Overview
 ### Admin Interface
@@ -15,3 +17,10 @@ Our API is written in C# using ASP.NET Core. Full Swagger OpenAPI documentation 
 
 ### MQTT Broker
 We are using [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support) as our MQTT Broker. Information on connecting and recieving/publishing messages can be found [here](mqtt.md)
+
+## GitHub Repos
+
+* [ee579-api](https://github.com/fraserb99/ee579-api) - C# API repository
+* [ee579-web](https://github.com/fraserb99/ee579-web) - React web interface repository
+* [ee579-msp430](https://github.com/fraserb99/ee579-msp430) - Repository containing msp430 and ESP8266 code
+* [ee579-docs](https://github.com/fraserb99/ee579-docs) - Repository containing the markdown files used to create these docs

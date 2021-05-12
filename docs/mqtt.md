@@ -37,7 +37,9 @@ mosquitto_sub \
     -i 00:0a:95:9d:68:16 \
     -u "IFTTT-Iot-Hub.azure-devices.net/00:0a:95:9d:68:16" \
     -P "SharedAccessSignature sr=IFTTT-Iot-Hub.azure-devices.net%2Fdevices%2F00%3A0a%3A95%3A9d%3A68%3A16&sig=ulc08e%2FYp%2FMLJdyMLxsV7pqTQ12XamytzQjxFFithNg%3D&se=1618623078" \
-    --cafile C:\Users\Fraser\GitHub\ee579-api\EE579\EE579.Core\Slices\Devices\Simulate\iotHubCert.pem -d -V mqttv311 -q 1
+    --cafile C:\Users\Fraser\GitHub\ee579-api\EE579\EE579.Core\Slices\Devices\Simulate\iotHubCert.pem 
+    -V mqttv311 \
+    -q 1
 ```
 
 * **-h**: The host name for the broker. 
@@ -52,7 +54,7 @@ mosquitto_sub \
 
 * **-P**: The password for the broker. Can be retrieved from the register API response.
 
-* **--catfile**: Path to the IotHub Certificate.
+* **--cafile**: Path to the IotHub Certificate.
 
 * **-V**: The MQTT version. IotHub only supports MQTT version 3.1.1.
 

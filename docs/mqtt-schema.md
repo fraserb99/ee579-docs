@@ -11,7 +11,7 @@ Device-to-cloud messages should be sent when an input has been triggered. These 
 This message is sent to the broker whenever a button is pushed on the microcontroller.
 
 **Message Body**
-```
+``` json
 {
     "InputType": enum, // [Button1, Button2]
     "Value": int // The length the button is held in ms
@@ -25,7 +25,7 @@ This message is sent every time the analogue value from the potentiometer is rea
 **Message Body**:
 ```
 {
-    "InputType": "PotentiometerValue",
+    "InputType": "Potentiometer",
     "Value": int // (0 - 1023) - the analogue value of the potentiometer  
 }
 ``` 
@@ -37,8 +37,8 @@ This message is sent every time the analogue value from the temperature sensor i
 **Message Body**:
 ```
 {
-    "InputType": "PotentiometerValue",
-    "Value": int // (-50 to 100) - the temperature in degrees celcius
+    "InputType": "Temperature",
+    "Value": int // (-50 to 100) - the temperature in degrees celsius
 }
 ```
 

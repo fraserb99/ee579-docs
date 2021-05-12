@@ -14,7 +14,7 @@
     
     
       
-        <title>Multi-Tenancy - EE579 Group 4 Docs</title>
+        <title>Web Hooks - EE579 Group 4 Docs</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#multi-tenancy" class="md-skip">
+        <a href="#web-hooks" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Multi-Tenancy
+              Web Hooks
             
           </span>
         </div>
@@ -208,12 +208,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
         For Developers
@@ -265,11 +267,118 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../webhooks/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Web Hooks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Web Hooks
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-web-hook" class="md-nav__link">
+    What is a Web Hook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-web-hooks-in-our-system" class="md-nav__link">
+    Using Web Hooks in our System
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Web Hooks in our System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-web-hooks" class="md-nav__link">
+    Why use Web Hooks?
+  </a>
+  
+    <nav class="md-nav" aria-label="Why use Web Hooks?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-and-use-cases" class="md-nav__link">
+    Examples and Use Cases
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples and Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ifttt" class="md-nav__link">
+    IFTTT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-logic-apps" class="md-nav__link">
+    Azure Logic Apps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -286,14 +395,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         For Users
@@ -321,78 +428,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Multi-Tenancy
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../multi-tenancy/" class="md-nav__link">
         Multi-Tenancy
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-multi-tenancy" class="md-nav__link">
-    What is Multi-Tenancy?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multi-tenancy-in-this-application" class="md-nav__link">
-    Multi-Tenancy in this application
-  </a>
-  
-    <nav class="md-nav" aria-label="Multi-Tenancy in this application">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-tenant" class="md-nav__link">
-    Creating a Tenant
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    Next Steps
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -465,23 +505,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-multi-tenancy" class="md-nav__link">
-    What is Multi-Tenancy?
+  <a href="#what-is-a-web-hook" class="md-nav__link">
+    What is a Web Hook
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-tenancy-in-this-application" class="md-nav__link">
-    Multi-Tenancy in this application
+  <a href="#using-web-hooks-in-our-system" class="md-nav__link">
+    Using Web Hooks in our System
   </a>
   
-    <nav class="md-nav" aria-label="Multi-Tenancy in this application">
+    <nav class="md-nav" aria-label="Using Web Hooks in our System">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-a-tenant" class="md-nav__link">
-    Creating a Tenant
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
   </a>
   
 </li>
@@ -492,9 +539,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    Next Steps
+  <a href="#why-use-web-hooks" class="md-nav__link">
+    Why use Web Hooks?
   </a>
+  
+    <nav class="md-nav" aria-label="Why use Web Hooks?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-and-use-cases" class="md-nav__link">
+    Examples and Use Cases
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples and Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ifttt" class="md-nav__link">
+    IFTTT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-logic-apps" class="md-nav__link">
+    Azure Logic Apps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -510,24 +590,30 @@
             <article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download href="..\pdf\combined.pdf" title="PDF Export"><svg style="height: 1.2rem; width: 1.2rem;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg></a>
               
                 
-                  <a href="https://github.com/fraserb99/ee579-docs/edit/main/docs/multi-tenancy.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/fraserb99/ee579-docs/edit/main/docs/webhooks.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="multi-tenancy">Multi-Tenancy<a class="headerlink" href="#multi-tenancy" title="Permanent link">#</a></h1>
-<h2 id="what-is-multi-tenancy">What is Multi-Tenancy?<a class="headerlink" href="#what-is-multi-tenancy" title="Permanent link">#</a></h2>
-<p>Multi-tenancy is an architecture that allows a single application to be used by multiple customers. This means that data in the application is scoped to the current customer and not visible to other customers of the application. An example of this is rhe university's use of Microsoft's suite of applications. In this case, the university has their own tenant. This tenant contains all of the data specific</p>
-<h2 id="multi-tenancy-in-this-application">Multi-Tenancy in this application<a class="headerlink" href="#multi-tenancy-in-this-application" title="Permanent link">#</a></h2>
-<p>Multi-tenancy in this application involves scoping rules, devices, and device groups to tenants. This allows multiple customers to use the application without other customers seeing their data. Users can then belong to multiple tenants, allowing them to view and manage their data.</p>
-<h3 id="creating-a-tenant">Creating a Tenant<a class="headerlink" href="#creating-a-tenant" title="Permanent link">#</a></h3>
-<p>When first creating an account a new tenant is created for you, allowing you to get started creating rules and adding devices. You may want to add another tenant in order to keep unrelated data separate - e.g., keeping rules and devices for each building in their own tenant. This can be done by clicking the 'Switch Tenant' button in the left drawer and then selecting 'Create a new tenant'.</p>
-<p><img alt="" src="../img/create-tenant.png" /></p>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
-<ul>
-<li>Learn how to <a href="../users/">manage users</a> within tenants</li>
-<li>Find out how to <a href="../devices/">add and manage devices</a></li>
-</ul>
+                <h1 id="web-hooks">Web Hooks<a class="headerlink" href="#web-hooks" title="Permanent link">#</a></h1>
+<h2 id="what-is-a-web-hook">What is a Web Hook<a class="headerlink" href="#what-is-a-web-hook" title="Permanent link">#</a></h2>
+<p>Web hooks allow one application to integrate with another over HTTP. This is commonly done by the external application making a post request to an endpoint provided by the application in which the functionality is performed. </p>
+<h2 id="using-web-hooks-in-our-system">Using Web Hooks in our System<a class="headerlink" href="#using-web-hooks-in-our-system" title="Permanent link">#</a></h2>
+<p>In the context of our system, web hooks can be used for both inputs to rules, and outputs from rules.</p>
+<h3 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h3>
+<p>Using a web hook as a rule input allows a 3rd party application to trigger the web hook rule input by making an HTTP request to our API. When a rule is created with a web hook input, a unique URL is generated. In order to trigger the rule, a post request must be made to this URL. Inherently, the logic that determines when the web hook URL should be invoked must be implemented by the 3rd party developer. For example, if a 3rd party wanted to trigger a rule using a moisture sensor, the 3rd party must implement their own low level code to handle the desired analogue thresholds for the sensor and then send the HTTP request to the web hook URL, which will trigger the rule. </p>
+<p>An example URL is shown below:</p>
+<p><code>http://ee579-dev-api.azurewebsites.net/webhooks/trigger/{unique_code}</code></p>
+<p>This is a callback URL to our API where <code>{unique_code}</code> is the code used to identify the specific rule input. </p>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h3>
+<p>Using a web hook as a rule output allows our system to trigger events on a 3rd party application. This works by our API sending an HTTP post request to your specified URL upon the rule's inputs being triggered. The URL must be public facing and have an appropriate CORS policy to allow the receival of our request. That is, POST request should be allowed and the cross origin polciy should allow for requests from our API.</p>
+<h2 id="why-use-web-hooks">Why use Web Hooks?<a class="headerlink" href="#why-use-web-hooks" title="Permanent link">#</a></h2>
+<p>Our web hook implementation allows our system to be controlled by, or control, a completely different system, assuming that the different system is capable of sending or receiving HTTP post requests. For a web hook as a rule input it means a rule from any connected device on our system, can be triggered by invoking the web hook URL (that we generate for you) by sending a post request to it. This gives almost limitless potential for input interoperability thereby making our system not subject to the hardware or input implementation limitations on certain microncontrollers such as the MSP430. That is, any complex inputs that we do not support can be still be used where their HIGH event on the 3rd party application, can then invoke the web hook URL, thus triggering a rule where our system need not know of the complex input that might have caused it, only that the web hook has been invoked. Likewise, with using a web hook as a rule output, it can trigger functionality on a different system where the triggered functionality is controled by the rule logic in our own system. </p>
+<h3 id="examples-and-use-cases">Examples and Use Cases<a class="headerlink" href="#examples-and-use-cases" title="Permanent link">#</a></h3>
+<h4 id="ifttt">IFTTT<a class="headerlink" href="#ifttt" title="Permanent link">#</a></h4>
+<p><a href="https://ifttt.com/home">IFTTT</a> (If This Then That) is a popular software platform that connects apps, devices and services from different developers in order to trigger one or more automations involving those apps, devices and services. IFTTT offers web hooks as both logic inputs and outputs. On our system, by specifying the web hook output URL as your IFTTT web hook input URL, you have potential to control hundreds of different services and devices all from our own system. An example of this could be using a device on our system with a rule setup with a button pressed input event, then with a web hook output from the rule that points to a web hook input on IFTTT, you could automatically order a Dominoes, send an SMS for you, turn your heating up, post a tweet and hundreds more options. Likewise, this system interaction can work in reverse, with devices on our system being influenced by your logic on IFTTT such as sounding a buzzer on oone of our devices and a specific time of day. The possibilities are endless. </p>
+<h4 id="azure-logic-apps">Azure Logic Apps<a class="headerlink" href="#azure-logic-apps" title="Permanent link">#</a></h4>
+<p>The corporate equivalent to IFTTT, is <a href="https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview">Logic Apps</a>. A Logic App allows for automation of business workflow tasks and can be controlled with input triggers and produce some output such as sending an email. In a similar fashion to how our system might interact with IFTTT, there is vast potential for controlling your business logic using devices on our system. </p>
                 
               
               
@@ -546,7 +632,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../create-account/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../mqtt-schema/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -555,19 +641,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Creating an Account
+              Messaging Schema
             </div>
           </div>
         </a>
       
       
-        <a href="../users/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../create-account/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Managing Users
+              Creating an Account
             </div>
           </div>
           <div class="md-footer__button md-icon">

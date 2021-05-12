@@ -1,4 +1,6 @@
 site_name: EE579 Group 4 Docs
+repo_url: https://github.com/fraserb99/ee579-docs
+edit_uri: edit/main/docs/
 
 nav:
     - Home: index.md
@@ -15,8 +17,16 @@ nav:
       - Rules: rules.md
     - For Maintainers:
       - API: api.md
-theme: readthedocs
+theme: material
 
 markdown_extensions:
     - toc:
         permalink: "#"
+    - fenced_code
+    - pymdownx.highlight
+    - pymdownx.superfences
+
+plugins:
+    - search
+    - pdf-export:
+        combined: true
