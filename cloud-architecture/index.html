@@ -469,6 +469,47 @@
     Architecture Overview
   </a>
   
+    <nav class="md-nav" aria-label="Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-interface" class="md-nav__link">
+    Web Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-hub-and-event-hubs" class="md-nav__link">
+    IoT Hub and Event Hubs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs-site" class="md-nav__link">
+    Docs Site
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -522,6 +563,47 @@
     Architecture Overview
   </a>
   
+    <nav class="md-nav" aria-label="Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-interface" class="md-nav__link">
+    Web Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-hub-and-event-hubs" class="md-nav__link">
+    IoT Hub and Event Hubs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs-site" class="md-nav__link">
+    Docs Site
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -543,8 +625,143 @@
                 
                 <h1 id="cloud-architecture">Cloud Architecture<a class="headerlink" href="#cloud-architecture" title="Permanent link">#</a></h1>
 <h2 id="cloud-provider">Cloud Provider<a class="headerlink" href="#cloud-provider" title="Permanent link">#</a></h2>
-<p>This systems various services are currently hosted on the Microsoft Azure platform. The cloud provider is not tightly coupled to the application for the most part, so you are free to use the provider of your choice. The only exception to this is for IoT Hub, for which more information can be found <a href="#iot-hub">here</a>.</p>
+<p>The majority of the cloud components of this system are currently hosted on the Microsoft Azure platform. The cloud provider is not tightly coupled to the application for the most part, so you are free to use the provider of your choice. The only exception to this is for IoT Hub and consequently <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin">Event Hubs</a>, for which more information can be found <a href="#iot-hub">here</a>. It should also be noted that this docs site is hosted using <a href="https://pages.github.com/">GitHub Pages</a> - more detail about how this works can be found in the <a href="#docs-site">Docs Site Section</a>.</p>
+<p>The Azure Portal is available at <a href="https://portal.azure.com">portal.azure.com</a> and can be used to create and manage cloud resources.</p>
 <h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">#</a></h2>
+<p><img alt="" src="../img/cloud-arch.png" /></p>
+<p>This diagram shows how the cloud services integrate with each other. This section will detail how each of these services is hosted to allow you to replicate the hosting setup on the provider of your choice.</p>
+<h3 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h3>
+<p>The API is hosted as an <a href="https://azure.microsoft.com/en-gb/services/app-service/">Azure App Service</a>. This is a Platform-as-a-Service (PaaS) offering from Azure that enables applications to be run without having to configure the underlying server as everything like the web server config is handled behind-the-scenes by Azure. Before an App Service can be created, an <a href="https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans">App Service Plan</a> must be created. App Service Plans can contain multiple App Services, with the scale being configured at the App Service Plan level.</p>
+<p>The following screenshot shows an example configuration for an App Service Plan.</p>
+<p><img alt="" src="../img/app-service-config.png" /></p>
+<p>The only options that must be set as shown in the screenshot are the <code>Publish: Code</code> and <code>Runtime Stack: .NET 5</code> options. All of the rest are up to you. Our API has cross-platform support and can run on Windows or Linux. We cannot provide any direct instructions as we have not done it, but the API can be hosted on other providers like AWS, or alternatively can be run on a local server running IIS, Kestrel, or another web server.</p>
+<p>There are several environment variables that must be set for the API to function correctly. If you are hosting the app on an App Service, it is as simple as setting 2 values in the configuration section of the App Service:</p>
+<p><img alt="" src="../img/app-settings.png" /></p>
+<p>If you are hosting on another service then the environment variables should be set directly with the following names:</p>
+<ul>
+<li><strong><code>ASPNETCORE_ENVIRONMENT</code></strong> - This should be set to <code>Staging</code></li>
+<li><strong><code>ConnectionStrings__Default</code></strong> - This should be the connection string for your database</li>
+</ul>
+<p>You may also need to edit some values in <code>appsettings.Staging.json</code>. The values from this file get loaded as configuration options.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nt">&quot;AppSettings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;AdminUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.ee579-group4.net&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ApiUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;http://ee579-dev-api.azurewebsites.net&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;SmtpSettings&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;EmailEnabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;Host&quot;</span><span class="p">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Port&quot;</span><span class="p">:</span> <span class="mi">587</span><span class="p">,</span>
+            <span class="nt">&quot;Email&quot;</span><span class="p">:</span> <span class="s2">&quot;ee579.ifttt@gmail.com&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Password&quot;</span><span class="p">:</span> <span class="s2">&quot;**********&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>For example, if you are hosting the API on another URL, you should change the <code>"ApiUrl"</code> value to reflect this. You can also change the Smtp server used for sending email here.</p>
+<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">#</a></h3>
+<p>We are using Azure SQL to host our database, a cloud database service using Microsoft's <a href="https://docs.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver15">SQLServer</a>. You are in no means tied to this SQL variation, however. One of the benefits of using EF Core is that it abstracts the database itself from the code. This means that you are free to use any of the <a href="https://docs.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli">supported database providers</a>.</p>
+<p>To use a different database provider, you should first set the connection string as described in the previous section. You then must also change the following line in <a href="https://github.com/fraserb99/ee579-api/blob/develop/EE579/EE579.Api/Startup.cs"><code>Startup.cs</code></a> where the database connection is configured.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="k">void</span> <span class="nf">ConfigureEfCore</span><span class="p">(</span><span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">services</span><span class="p">.</span><span class="n">AddDbContext</span><span class="p">&lt;</span><span class="n">DatabaseContext</span><span class="p">&gt;(</span><span class="n">opts</span> <span class="p">=&gt;</span>
+        <span class="n">opts</span><span class="p">.</span><span class="n">UseLazyLoadingProxies</span><span class="p">()</span>
+<span class="hll">            <span class="p">.</span><span class="n">UseSqlServer</span><span class="p">(</span><span class="n">Configuration</span><span class="p">.</span><span class="n">GetConnectionString</span><span class="p">(</span><span class="s">&quot;Default&quot;</span><span class="p">)));</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Change this to use the corresponding function, e.g., <code>UseSqlite</code> if you are using a Sqlite database.</p>
+<h3 id="web-interface">Web Interface<a class="headerlink" href="#web-interface" title="Permanent link">#</a></h3>
+<p>The web interface is hosted as an <a href="https://azure.microsoft.com/en-gb/services/app-service/static/">Azure Static Web App</a>. Azure Static Web Apps allow static sites to be hosted without using a web server. This is especially useful when the site is an SPA - <a href="../front-end/#single-page-applications">as described here</a>. SPAs don't require any processing to be performed on the server to serve the response, the server only needs to return the file containing the client-side code. Static Web Apps allow these files to be served through the use of a <abbr title="Content Delivery Network">CDN</abbr>, providing users with extremely fast page load times.</p>
+<p>The site can also be hosted on a traditional server as well. Running <code>npm build</code> will generate a production-ready, minified build containing an <code>index.html</code> with references to the minified javascript files. This build can then be deployed to the wwwroot folder of any web server and served.</p>
+<p>There is an additional piece of configuration required when configuring the web server running the site. Because the React app is an SPA, the web server only sees a single <code>index.html</code> file so assumes that the only root is the default <code>/</code>. This means that if someone navigates to <code>/sign-up</code> for example, the web server will not find a <code>sign-up.html</code> file, so will return a 404. To fix this we must route all requests to <code>/</code>. If hosting using a Static Web App, this can be done using a <code>routes.json</code> file in the <code>/public</code> folder.</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">routes.json</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;route&quot;</span><span class="p">:</span> <span class="s2">&quot;/*&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;serve&quot;</span><span class="p">:</span> <span class="s2">&quot;/index.html&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;statusCode&quot;</span><span class="p">:</span> <span class="mi">200</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p>The method for doing this may vary between web servers. to take IIS as an example, a <code>web.config</code> file can be used to configure the routing.</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">web.config</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;system.webServer&gt;</span>    
+        <span class="nt">&lt;rewrite&gt;</span>
+            <span class="nt">&lt;rules&gt;</span>
+                <span class="nt">&lt;remove</span> <span class="na">name=</span><span class="s">&quot;pushState&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;rule</span> <span class="na">name=</span><span class="s">&quot;pushState&quot;</span> <span class="na">stopProcessing=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;match</span> <span class="na">url=</span><span class="s">&quot;.*&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;conditions</span> <span class="na">logicalGrouping=</span><span class="s">&quot;MatchAll&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;add</span> <span class="na">input=</span><span class="s">&quot;{REQUEST_FILENAME}&quot;</span> <span class="na">matchType=</span><span class="s">&quot;IsFile&quot;</span> <span class="na">negate=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;add</span> <span class="na">input=</span><span class="s">&quot;{REQUEST_FILENAME}&quot;</span> <span class="na">matchType=</span><span class="s">&quot;IsDirectory&quot;</span> <span class="na">negate=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/conditions&gt;</span>
+                        <span class="nt">&lt;action</span> <span class="na">type=</span><span class="s">&quot;Rewrite&quot;</span> <span class="na">url=</span><span class="s">&quot;/&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/rule&gt;</span>
+            <span class="nt">&lt;/rules&gt;</span>
+        <span class="nt">&lt;/rewrite&gt;</span>
+    <span class="nt">&lt;/system.webServer&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div>
+</div>
+</div>
+<h3 id="iot-hub-and-event-hubs">IoT Hub and Event Hubs<a class="headerlink" href="#iot-hub-and-event-hubs" title="Permanent link">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The IoT Hub setup is somewhat involved and requires more setup than the other components. If you are looking to replicate our cloud architecture we recommend that you continue to use our IoT Hub to simplify setup on both devices and the server.</p>
+</div>
+<p>IoT Hub implements a publish-subscribe pattern, used in this system to facilitate communication between the IoT devices and server.</p>
+<p>IoT Hub is not a traditional MQTT broker, so to read messages sent from devices the server cannot just subscribe to their topics. Instead, IoT Hub exposes these messages through an  <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin">Event Hub built-in-endpoint</a>. The API then reads the messages from this Event Hub endpoint and processes them asynchronously.</p>
+<p>A Blob Storage Account is also required to read messages from the built-in-endpoint. This is used to store checkpoint files which allow the API to keep its place in the message queue, like a bookmark. This prevents messages from being read twice. The storage account was omitted from the architecture diagram for brevity.</p>
+<p>IoT Hub also allows you to expose device connection state events by routing them through an Event Hub. This means that when a device connects to the IoT Hub, a connection state message is routed to the corresponding Event Hub. Our application then reads the messages from this endpoint and updates the corresponding device's connection state in the database. This connection state is then displayed in the UI as shown <a href="../devices/#managing-existing-devices">here</a>.</p>
+<p>If you do create your own IoT Hub, Event Hub, and storage account, simply change the connection strings in <a href="https://github.com/fraserb99/ee579-api/blob/develop/EE579/EE579.Core/Slices/IotHub/IotHubWorkerService.cs"><code>IotHubWorkerService.cs</code></a> and <a href="https://github.com/fraserb99/ee579-api/blob/develop/EE579/EE579.Domain/Messaging/IotMessagingService.cs"><code>IotMessagingService.cs</code></a> to point to your resources.</p>
+<h3 id="docs-site">Docs Site<a class="headerlink" href="#docs-site" title="Permanent link">#</a></h3>
+<p>The docs site is the site this documentation is currently available from - <a href="https://docs.ee579-group4.net">docs.ee579-group4.net</a>. This site is created using <a href="https://www.mkdocs.org/">MkDocs</a>, a static site generator that converts <a href="https://daringfireball.net/projects/markdown/">Markdown</a> files into a static site composed of html, css, and javascript.</p>
+<p>Unlike the other components, this site is not hosted on Azure. Instead, GitHub pages is used. MkDocs provides easy integration with GitHub pages through their CLI. The following commands show how you can contribute to the documentation and deploy it.</p>
+<ol>
+<li>
+<div class="highlight"><pre><span></span><code>pip install mkdocs &amp;&amp; pip install mkdocs-material
+</code></pre></div>
+</li>
+<li>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/fraserb99/ee579-docs.git
+</code></pre></div>
+</li>
+<li>
+<div class="highlight"><pre><span></span><code>cd ee579-docs
+</code></pre></div>
+</li>
+<li>
+<div class="highlight"><pre><span></span><code>mkdocs serve
+</code></pre></div>
+</li>
+<li>
+<p>Make any changes you would like at this point</p>
+</li>
+<li>
+<div class="highlight"><pre><span></span><code>mkdocs gh-deploy
+</code></pre></div>
+</li>
+</ol>
                 
               
               
