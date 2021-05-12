@@ -13,6 +13,8 @@ nav:
       - Managing Users: users.md
       - Managing Devices: devices.md
       - Rules: rules.md
+    - For Maintainers:
+      - API: api.md
 theme: readthedocs
 
 markdown_extensions:
