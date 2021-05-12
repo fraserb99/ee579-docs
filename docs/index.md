@@ -7,7 +7,7 @@ If you would like to learn the web interface and functionality provided by the s
 If you would like information on how to develop your own IoT device and integrate with our system, start by reading the [Register a Device](register-device.md) page.
 
 !!! tip
-    **This PDF has been generated from the documentation site here - [docs.ee579-group4.net](https://docs.ee579-group4.net). We would strongly recommend that the documentation is viewed on the interactive site, rather than this PDF for the best experience.**
+    **This PDF has been generated from the documentation site here - [docs.ee579-group4.net](https://docs.ee579-group4.net). We would strongly recommend that the documentation is viewed on the interactive site, rather than this PDF, for the best experience.**
 
 ## System Overview
 ### Admin Interface
