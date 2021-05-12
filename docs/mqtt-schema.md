@@ -55,7 +55,7 @@ This message is sent to notify the microcontroller to turn an LED on/off and wit
 {
     "OutputType": "LedOutput",
     "Peripheral": enum, // [Led1, Led2, Led3]
-    "Value": bool, // the desired state of the LED.
+    "Value": boolean, // the desired state of the LED.
     "Colour" enum // (Led3 only) [Red/Green/Blue/Purple/Yellow/White]
 }
 ``` 
@@ -97,7 +97,7 @@ This message is sent to notify the microcontroller to fade an LED to a desired s
 {
     "OutputType": "LedFade",
     "Peripheral": enum, // [Led1, Led2, Led3]
-    "Value": bool, // the desired state of the LED.
+    "Value": boolean, // the desired state of the LED.
     "Duration": int, // the duration the fade should take in ms.
     "Colour": enum // (Led3 only): [Red/Green/Blue/Purple/Yellow/White]
 }
@@ -111,7 +111,7 @@ This message is sent to notify the microcontroller to cycle the LED colour in th
 ``` javascript
 {
     "OutputType": "LedCycle",
-    "Direction": bool, // cycle forwards or backwards - [true/false] respectively
+    "Direction": boolean, // cycle forwards or backwards - [true/false] respectively
     "Period": int // how long the period of the cycle should be in ms 
 }
 ``` 
@@ -151,9 +151,9 @@ This message is sent whenever a device connects to the broker, or if a rule is c
 ``` javascript
 {
     "MessageType": "DeviceConfig",
-    "Button1": bool,
-    "Button2": bool,
-    "Potentiometer": bool,
-    "Temperature": bool
+    "Button1": boolean,
+    "Button2": boolean,
+    "Potentiometer": boolean,
+    "Temperature": boolean
 }
 ```
