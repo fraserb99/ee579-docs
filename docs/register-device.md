@@ -5,7 +5,7 @@
 In order for your device to connect to IoT Hub, it must first retreive credentials. This can be done by sending a ```POST``` request to ```https://ee579-dev-api.azurewebsites.net/devices/register```. This will register your device with our system and return credentials to allow connection over MQTT. The device should make this request when first powered on, but the same endpoint can be used even if a device is already registered in the system. This accounts for situations where the device may have lost it's credentials, and allows the device to make the request every time it powers on, if desired.
 #### Request Format
 ###### Example Body
-```
+``` json
 {
     "deviceId": "<string>"
 }
@@ -17,7 +17,7 @@ In order for your device to connect to IoT Hub, it must first retreive credentia
 
 #### Response Format
 ###### Example Body
-```
+``` json
 {
     "connectionString": "HostName=IFTTT-Iot-Hub.azure-devices.net;DeviceId={deviceId};SharedAccessKey=El50EkQ/S/9qp5dd/V3VpsizIvSv+SA8TVF3QiGc93A=",
     "host": "IFTTT-Iot-Hub.azure-devices.net",

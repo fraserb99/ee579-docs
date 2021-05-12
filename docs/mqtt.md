@@ -29,7 +29,7 @@ We have provided some example code for registering a device with the API and sen
 
 As MQTT is usually implemented on memory restricted devices, it is possible that the memory required to implement broker connection/interaction using an SDK is unavailable. For this reason, directly connecting to the protocol might be required. Below is a mosquitto subscribe command showing the parameters required to manually connect to the cloud device topic.
 
-```
+``` javascript
 mosquitto_sub \
     -h IFTTT-Iot-Hub.azure-devices.net \
     -p 8883 \

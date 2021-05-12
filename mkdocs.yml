@@ -28,5 +28,5 @@ markdown_extensions:
 
 plugins:
     - search
-    - pdf-export:
-        combined: true
+    # - pdf-export:
+    #     combined: true

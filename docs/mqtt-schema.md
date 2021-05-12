@@ -11,7 +11,7 @@ Device-to-cloud messages should be sent when an input has been triggered. These 
 This message is sent to the broker whenever a button is pushed on the microcontroller.
 
 **Message Body**
-``` json
+``` javascript
 {
     "InputType": enum, // [Button1, Button2]
     "Value": int // The length the button is held in ms
@@ -23,7 +23,7 @@ This message is sent to the broker whenever a button is pushed on the microcontr
 This message is sent every time the analogue value from the potentiometer is read. The value is sent with this message.
 
 **Message Body**:
-```
+``` javascript
 {
     "InputType": "Potentiometer",
     "Value": int // (0 - 1023) - the analogue value of the potentiometer  
@@ -35,7 +35,7 @@ This message is sent every time the analogue value from the potentiometer is rea
 This message is sent every time the analogue value from the temperature sensor is read. The value is sent with this message.
 
 **Message Body**:
-```
+``` javascript
 {
     "InputType": "Temperature",
     "Value": int // (-50 to 100) - the temperature in degrees celsius
@@ -51,7 +51,7 @@ Cloud-to-device messages are used to perform outputs on the device as a result o
 This message is sent to notify the microcontroller to turn an LED on/off and with the specified colour. 
 
 **Message Body**:
-```
+``` javascript
 {
     "OutputType": "LedOutput",
     "Peripheral": enum, // [Led1, Led2, Led3]
@@ -65,7 +65,7 @@ This message is sent to notify the microcontroller to turn an LED on/off and wit
 This message is sent to notify the microcontroller to breathe an LED at a specified speed and colour.
 
 **Message Body**:
-```
+``` javascript
 {
     "OutputType": "LedBreathe",
     "Peripheral": enum, // [Led1, Led2, Led3]
@@ -79,7 +79,7 @@ This message is sent to notify the microcontroller to breathe an LED at a specif
 This message is sent to notify the microcontroller to blink an LED at a specified speed and colour.
 
 **Message Body**:
-``` 
+``` javascript
 {
     "OutputType": "LedBlink",
     "Peripheral": enum, // [Led1, Led2, Led3]
@@ -93,7 +93,7 @@ This message is sent to notify the microcontroller to blink an LED at a specifie
 This message is sent to notify the microcontroller to fade an LED to a desired state at a specified speed and colour.
 
 **Message Body**:
-``` 
+``` javascript
 {
     "OutputType": "LedFade",
     "Peripheral": enum, // [Led1, Led2, Led3]
@@ -108,7 +108,7 @@ This message is sent to notify the microcontroller to fade an LED to a desired s
 This message is sent to notify the microcontroller to cycle the LED colour in the specified direction. 
 
 **Message Body**:
-```
+``` javascript
 {
     "OutputType": "LedCycle",
     "Direction": bool, // cycle forwards or backwards - [true/false] respectively
@@ -121,7 +121,7 @@ This message is sent to notify the microcontroller to cycle the LED colour in th
 This message is sent to notify the microcontroller to turn the piezo buzzer on for the specified length of time. 
 
 **Message Body**:
-```
+``` javascript
 {
     "OutputType": "BuzzerOn",
     "Duration": int, // the duration the buzzer should be on in ms 
@@ -133,7 +133,7 @@ This message is sent to notify the microcontroller to turn the piezo buzzer on f
 This message is sent to make the microcontroller toggle a buzzer at the desired rate. 
 
 **Message Body**:
-``` 
+``` javascript
 {
     "OutputType": "BuzzerBeep",
     "OnDuration": int, // the duration the buzzer should be on in ms 
@@ -148,7 +148,7 @@ This message is sent to notify the microcontroller which input devices are invol
 This message is sent whenever a device connects to the broker, or if a rule is created, updated, or deleted involving the device.
 
 **Message Body**:
-```
+``` javascript
 {
     "MessageType": "DeviceConfig",
     "Button1": bool,
