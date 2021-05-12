@@ -14,7 +14,7 @@
     
     
       
-        <title>Managing Users - EE579 Group 4 Docs</title>
+        <title>API - EE579 Group 4 Docs</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#users" class="md-skip">
+        <a href="#api" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Managing Users
+              API
             
           </span>
         </div>
@@ -286,14 +286,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         For Users
@@ -333,58 +331,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Managing Users
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
         Managing Users
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#roles" class="md-nav__link">
-    Roles
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inviting-users" class="md-nav__link">
-    Inviting Users
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -425,12 +376,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       <label class="md-nav__link" for="__nav_4">
         For Maintainers
@@ -446,11 +399,92 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         API
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#framework-and-language" class="md-nav__link">
+    Framework and Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-api" class="md-nav__link">
+    Running the API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-apis-architecture-and-directory-structure" class="md-nav__link">
+    Understanding the API's Architecture and Directory Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding the API's Architecture and Directory Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-module" class="md-nav__link">
+    API Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-module" class="md-nav__link">
+    Core Module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -511,15 +545,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#roles" class="md-nav__link">
-    Roles
+  <a href="#framework-and-language" class="md-nav__link">
+    Framework and Language
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#inviting-users" class="md-nav__link">
-    Inviting Users
+  <a href="#running-the-api" class="md-nav__link">
+    Running the API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-apis-architecture-and-directory-structure" class="md-nav__link">
+    Understanding the API's Architecture and Directory Structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding the API's Architecture and Directory Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-module" class="md-nav__link">
+    API Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-module" class="md-nav__link">
+    Core Module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
   </a>
   
 </li>
@@ -536,22 +604,40 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/fraserb99/ee579-docs/edit/main/docs/users.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/fraserb99/ee579-docs/edit/main/docs/api.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="users">Users<a class="headerlink" href="#users" title="Permanent link">#</a></h1>
-<p><img alt="" src="../img/users.png" /></p>
-<h2 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">#</a></h2>
-<p>Users can have one of two roles within a tenant:</p>
+                <h1 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h1>
+<h2 id="framework-and-language">Framework and Language<a class="headerlink" href="#framework-and-language" title="Permanent link">#</a></h2>
+<p>The API was built using the framework ASP.NET Core, built on top of Microsoft’s increasingly trending language, C#. ASP.NET Core is an web API specific framework that extends .NET Core. We are using .NET 5. </p>
+<h2 id="running-the-api">Running the API<a class="headerlink" href="#running-the-api" title="Permanent link">#</a></h2>
+<ol>
+<li>First install Visual Studio from <a href="https://visualstudio.microsoft.com/downloads/">here</a></li>
+<li>Pull our API with <code>git clone https://github.com/fraserb99/ee579-api.git</code></li>
+<li>Navigate into the EE579 directory</li>
+<li>Open EE579.sln with Visual Studio. Visual Studio should automatically install all the necessary dependencies</li>
+<li>Press the green play button on the top toolbar to run the API. This starts the API on localhost:5001</li>
+</ol>
+<h2 id="understanding-the-apis-architecture-and-directory-structure">Understanding the API's Architecture and Directory Structure<a class="headerlink" href="#understanding-the-apis-architecture-and-directory-structure" title="Permanent link">#</a></h2>
+<p>The API is organised into three modules: Api, Core and Domain. The root directory structure for each module is shown below:</p>
+<p><img alt="" src="../img/top-api-directories.PNG" /></p>
 <ul>
-<li><strong>User</strong> - Users with this role can manage devices, rules, and device groups. However, they cannot manage users belonging to the tenant or edit the tenant itself.</li>
-<li><strong>Owner</strong> - This user has full control over the tenant. They can manage everything a user can, along with inviting and removing users and editing the tenant.</li>
+<li>The API module contains functionality related to basic input/output in the API as well as launch configurations and application settings.</li>
+<li>The Core module contains all the API logic for handling requests.</li>
+<li>The Domain module contains all the mapped database entity objects. An object representation of the database is also stored at the root level in DatabaseContext.cs.</li>
 </ul>
-<h2 id="inviting-users">Inviting Users<a class="headerlink" href="#inviting-users" title="Permanent link">#</a></h2>
-<p><img alt="" src="../img/invite-user.png" /></p>
-<p>Users can be invited to tenants by their email address. If the user already has an account, they will have immediate access to the tenant and receive an email telling them that they have been invited to your tenant. If they have not yet created an account they will receive an email informing them they have been invited to your tenant, including a link to sign up.</p>
+<h3 id="api-module">API Module<a class="headerlink" href="#api-module" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/apimod.PNG" /></p>
+<p>Above, is the API Module with some of its main directories expanded. Within the Controllers directory, lies all the Controllers for the API. A controller is a class that contains methods for the entry points for all our different endpoints. Controllers are split into their category. For example, all endpoints to do with users, such as getting a list of all users in the tennant, lie within the UsersController class. This get all endpoint within the UsersController can be seen below:</p>
+<p><img alt="" src="../img/userscontr.PNG" /></p>
+<p>We can see that there are various "attributes" above the method definition. Attributes can be used for various attribution related configuration to do with a particular method. In this case, there is the [HttpGet] attribute that defines this method as a GET request. You can find out more about attributes <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-5.0">here</a>. Within the methody body, a call to the method GetAll() is invoked upon the user service. This returns a list of user objects. More about services and dependency injection will be covered later. On the last line of this controller method, the list of users is returned to the front end. ASP.NET Core automatically serialises the list of user objects to JSON behind the scenes. </p>
+<p>Moving back up one directory from the Controllers directory, is the Infrastructure directory. Within this directory contains definitions for custom attributes, exceptions, middleware that handles status codes, and as well as the swagger documentation configurations. In the route directory of the API module, lies two important classes: Program and Startup. Program launches the API and boostraps the Startup class. Within Startup contains many API configurations, service registering and authorization handling. Things such as CORS policies and bearer token authentication go in here. </p>
+<h3 id="core-module">Core Module<a class="headerlink" href="#core-module" title="Permanent link">#</a></h3>
+<p><img alt="" src="../img/core.PNG" /></p>
+<p>Above, is the Core Module with some of its main directories expanded. At the highest directory level, is Infrastructure, Models and Slices. Similar to the Infrastructure directory in the API module, this directory contains classes that provide functionality to the system as a whole. Such as general utlity method overrides and extensions etc. </p>
+<h2 id="database">Database<a class="headerlink" href="#database" title="Permanent link">#</a></h2>
                 
               
               
@@ -570,7 +656,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../multi-tenancy/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../rules/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -579,19 +665,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Multi-Tenancy
+              Rules
             </div>
           </div>
         </a>
       
       
-        <a href="../devices/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../front-end/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Managing Devices
+              Front End
             </div>
           </div>
           <div class="md-footer__button md-icon">
