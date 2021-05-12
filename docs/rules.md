@@ -108,3 +108,12 @@ This output fades the LED off over a given period of time.
 ![](img/led-cycle.png)
 
 This output applies only to LED 3 as it cycles through all possible colours. The direction of the cycle can be chosen along with the period - the total amount of time it will take to cycle through all colours
+
+### Web Hooks
+
+![](img/webhy4.png)
+
+This ouput sends an HTTP post request to the specified URL. The `Forward Message` option allows for the message body of the input on this rule to be forwarded to the specified URL. For example, if the input was also a web hook that posted some payload in the body, this will be retained and posted to the specified URL. If it was a button press as the input, the MQTT JSON message also gets forwarded. For more information for developers and using web hooks for interoperability please see [here](webhooks.md).
+
+![](img/webhy3.png)
+
